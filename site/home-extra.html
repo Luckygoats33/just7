@@ -1,0 +1,69 @@
+/* lineup */
+.lineup{background:var(--ink);color:var(--paper)}
+.lineup .eyebrow{color:var(--sun)}
+.lineup h2{color:var(--paper)}
+.prods{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:clamp(28px,5vw,48px)}
+.prod{border-radius:28px;padding:28px;display:grid;gap:12px;align-content:start;color:var(--on-color);text-decoration:none;position:relative;overflow:hidden;min-height:400px}
+.prod .digit{font:900 clamp(9rem,22vw,13rem)/.75 var(--f-display);letter-spacing:-.06em}
+.prod h3{font-size:2rem;font-weight:900}
+.prod p{opacity:.92}
+.prod .state{justify-self:start;font:900 .76rem var(--f-display);letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.25)}
+.prod.p5{background:var(--mint);color:#10291D}
+.prod.p7{background:var(--sky);box-shadow:0 0 0 5px var(--sun)}
+.prod.p7 .state{background:var(--sun);color:#2A2205}
+.prod.p9{background:var(--plum)}
+.prod .go{margin-top:auto;font:900 1.1rem var(--f-display)}
+a.prod{transition:transform .2s}
+a.prod:hover{transform:translateY(-6px) rotate(-.6deg);color:var(--on-color)}
+/* why */
+.why{background:var(--sun);color:#2A2205}
+.why .eyebrow{color:#2A2205;opacity:.75}
+.reasons{display:grid;margin-top:clamp(24px,4vw,40px);border-top:3px solid #2A2205}
+.reason{display:grid;gap:6px 28px;padding-block:22px;border-bottom:3px solid #2A2205}
+@media (min-width:860px){.reason{grid-template-columns:1.1fr 1fr;align-items:center}}
+.reason b{font:900 clamp(1.9rem,5vw,3.1rem)/1 var(--f-display);letter-spacing:-.02em}
+.reason p{font-size:1.06rem}
+/* reviews */
+.reviews{background:var(--plum-tint)}
+.reviews .eyebrow{color:var(--plum)}
+:root:not([data-theme="light"]) .reviews .eyebrow{color:#E7B8EA}
+.rv-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));margin-top:clamp(24px,4vw,40px)}
+.rv{background:var(--card);border:3px dashed color-mix(in srgb,var(--plum) 45%,transparent);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
+.rv .stars{font:900 1.4rem var(--f-display);letter-spacing:.1em;color:color-mix(in srgb,var(--plum) 40%,transparent)}
+.rv b{font:900 1.15rem var(--f-display)}
+.rv p{color:var(--mute);font-size:.95rem}
+.rv.cta{background:var(--plum);border:0;color:var(--on-color)}
+.rv.cta p{color:#F1E2F2}
+.rv.cta b{font-size:1.5rem}
+<!--SPLIT-->
+<section class="sec lineup" id="products"><div class="w">
+  <p class="eyebrow">The lineup</p>
+  <h2 class="big-letters" style="margin-top:12px">5. 7. 9.<br>Pick your number.</h2>
+  <div class="prods">
+    <div class="prod p5"><span class="state">Later</span><span class="digit">5</span><h3>Just 5</h3><p>Our gentle sheet, for the most sensitive loads.</p></div>
+    <a class="prod p7" href="products/just-7/index.html"><span class="state">Ships first</span><span class="digit">7</span><h3>Just 7</h3><p>The everyday sheet. Seven ingredients, fragrance-free, 30 sheets for up to 60 loads.</p><span class="go">Shop Just 7 &rarr;</span></a>
+    <div class="prod p9"><span class="state">Later</span><span class="digit">9</span><h3>Just 9</h3><p>Gritty. Seven plus two enzymes for grass, food and pet messes.</p></div>
+  </div>
+</div></section>
+
+<section class="sec why"><div class="w">
+  <p class="eyebrow">Why switch</p>
+  <h2 class="big-letters" style="margin-top:12px">Your detergent is<br>hiding a long list.</h2>
+  <div class="reasons">
+    <div class="reason"><b>You can read the whole label.</b><p>Seven names, each with a percentage. Check it against anything you or your pets react to in ten seconds.</p></div>
+    <div class="reason"><b>No perfume on your sheets.</b><p>No fragrance and no essential oils, so nothing lingers on the bedding your cat or dog sleeps on.</p></div>
+    <div class="reason"><b>No jug. No drips.</b><p>One flat pouch the size of an envelope replaces a heavy plastic bottle.</p></div>
+    <div class="reason"><b>Every pouch helps animals.</b><p>7% of every sale goes to animal sanctuaries, on every order.<sup class="p"><a href="pages/claims/index.html" title="Needs legal review" style="color:#2A2205">&#8224;</a></sup></p></div>
+  </div>
+</div></section>
+<!--SPLIT-->
+<section class="sec reviews" id="reviews"><div class="w">
+  <p class="eyebrow">Reviews</p>
+  <h2 class="big-letters" style="margin-top:12px">Your words go here.</h2>
+  <p style="color:var(--mute);margin-top:14px">Just 7 isn't on sale yet, so there are no reviews to show. Every review on this page will come from a real customer after launch.</p>
+  <div class="rv-grid">
+    <div class="rv"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>First reviews</b><p>Open when the first pouches ship.</p></div>
+    <div class="rv"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>Pet homes</b><p>We'll ask cat and dog homes how a fragrance-free wash went.</p></div>
+    <div class="rv cta"><b>Want to test it first?</b><p>Join the waitlist and tell us who's in your home. Early testers come from the list.</p><a class="btn sun" href="#waitlist" style="justify-self:start">Join the waitlist</a></div>
+  </div>
+</div></section>

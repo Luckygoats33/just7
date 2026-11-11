@@ -1,0 +1,40 @@
+<style id="j7-motion">
+.mv{opacity:0;transform:translateY(26px) scale(.985)}
+.mv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,1.2,.4,1);transition-delay:calc(var(--d,0)*70ms)}
+@media (prefers-reduced-motion:reduce){.mv{opacity:1;transform:none}}
+</style>
+<script id="j7-motion-js">(function(){
+  if(!("IntersectionObserver" in window))return;
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var sel="main h2, main .eyebrow, main .lead, .card, .post, .ben, .tile, .room, .claim, .ing, .prod, .guide, .plan, .reason, .rv, .qa, .dose, .steps li, .outs span, .out>div, .cal, .promise, .tally, .irow, .label";
+  var vh=window.innerHeight||800, io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  document.querySelectorAll(sel).forEach(function(el){
+    if(el.closest(".ask,.drawer,.buybar,nav,header,footer"))return;
+    if(el.getBoundingClientRect().top<vh*.92)return;
+    var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+    el.style.setProperty("--d",Math.min(sib,6));
+    el.classList.add("mv");io.observe(el);
+  });
+})();</script>
+<script id="j7-menu-js">(function(){document.querySelectorAll("details.menu,details.mmenu").forEach(function(d){function place(){var h=d.closest("header,nav");var p=d.querySelector(".panel,.mpanel");if(h&&p&&d.open){p.style.top=Math.max(0,h.getBoundingClientRect().bottom)+"px"}}d.addEventListener("toggle",place);window.addEventListener("scroll",place,{passive:true});place()})})();</script>
+<script id="j7-top">try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}if(!location.hash)window.scrollTo(0,0);</script>
+<style id="j7-go-css">
+.j7-go{position:fixed;inset:0;z-index:999;background:#5B2A5E;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.j7-go.on{opacity:1;pointer-events:auto}
+.j7-go b{font:900 clamp(5rem,18vw,9rem)/1 "Nunito",ui-rounded,system-ui,sans-serif;color:#FFC94A;animation:j7spin 1s cubic-bezier(.3,1.4,.5,1) infinite}
+.j7-go small{display:block;text-align:center;color:#F4E3F5;font:800 1rem "Nunito",ui-rounded,system-ui,sans-serif;margin-top:8px}
+@keyframes j7spin{0%{transform:rotate(-8deg) scale(.9)}50%{transform:rotate(8deg) scale(1.08)}100%{transform:rotate(-8deg) scale(.9)}}
+@media (prefers-reduced-motion:reduce){.j7-go b{animation:none}}
+</style>
+<script id="j7-go-js">(function(){
+  var o=document.createElement("div");o.className="j7-go";o.setAttribute("aria-hidden","true");o.innerHTML="<div><b>7</b><small>Loading</small></div>";
+  document.addEventListener("DOMContentLoaded",function(){document.body.appendChild(o)});
+  if(document.body)document.body.appendChild(o);
+  window.addEventListener("pageshow",function(){o.classList.remove("on")});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||a.target)return;
+    var h=a.getAttribute("href");if(!h||h.charAt(0)==="#"||/^(https?:|mailto:|tel:)/i.test(h))return;
+    try{window.scrollTo(0,0)}catch(err){}
+    o.classList.add("on");
+  },true);
+})();</script>

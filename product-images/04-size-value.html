@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFAF7;--ink:#2B2F2E;--mute:#5C6461;--line:#E3E6E0;--off:#CDD1CB;--sky:#3A9BDC;--sky-deep:#1F6FA8;--sky-tint:#E6F2FB;--sage-ink:#3F7A4C}
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:1200px;overflow:hidden}
+body{background:var(--paper);font-family:Inter,sans-serif;color:var(--ink);padding:84px 80px 0;position:relative}
+.eyebrow{font:900 24px Nunito,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-ink)}
+h1{font:900 92px/0.95 Nunito,sans-serif;letter-spacing:-.02em;margin-top:14px}
+h1 em{font-style:normal;color:var(--sky)}
+.stage{position:relative;height:600px;margin-top:0}
+.jug{position:absolute;left:40px;bottom:70px;width:330px;height:420px}
+.jug svg{width:100%;height:100%}
+.pouch{position:absolute;left:470px;bottom:70px;width:250px;height:375px;border-radius:7px;overflow:hidden;transform:rotate(-4deg);box-shadow:0 26px 44px rgba(31,111,168,.24),0 8px 16px rgba(43,47,46,.15)}
+.pouch img{width:100%;height:100%;display:block}
+.lab{position:absolute;bottom:0;font:800 26px/1.2 Nunito,sans-serif;text-align:center}
+.lab small{display:block;font:600 21px Inter,sans-serif;color:var(--mute)}
+.l1{left:40px;width:330px;color:var(--mute)}
+.l2{left:440px;width:310px}
+.edge{position:absolute;left:790px;bottom:150px;width:12px;height:300px;border-radius:4px;background:linear-gradient(90deg,#1F6FA8,#5AAEE6);box-shadow:0 10px 20px rgba(31,111,168,.25)}
+.edge-lab{position:absolute;left:822px;bottom:270px;width:230px;font:800 26px/1.2 Nunito,sans-serif}
+.edge-lab small{display:block;font:600 21px Inter,sans-serif;color:var(--mute)}
+.price{position:absolute;left:80px;right:80px;bottom:56px;background:var(--sky-deep);color:#fff;border-radius:28px;padding:30px 36px;display:flex;align-items:center;justify-content:space-between}
+.price b{font:900 86px/1 Nunito,sans-serif;letter-spacing:-.02em}
+.price b small{font-size:34px;letter-spacing:0;font-weight:800}
+.price p{font:800 28px/1.3 Nunito,sans-serif;text-align:right;color:#D6ECFA}
+.price p strong{color:#fff}
+</style></head>
+<body>
+<p class="eyebrow">Size and value</p>
+<h1>60 loads.<br>Fits in a <em>drawer.</em></h1>
+<div class="stage">
+  <div class="jug"><svg viewBox="0 0 330 420" fill="none"><path d="M70 70 h120 v-30 a16 16 0 0 1 16 -16 h40 a16 16 0 0 1 16 16 v30 h8 a40 40 0 0 1 40 40 v270 a30 30 0 0 1 -30 30 h-240 a30 30 0 0 1 -30 -30 v-270 a40 40 0 0 1 40 -40z" fill="#ECEEEA" stroke="#CDD1CB" stroke-width="6"/><path d="M262 120 h20 a24 24 0 0 1 24 24 v80 a24 24 0 0 1 -24 24 h-20" stroke="#CDD1CB" stroke-width="14" stroke-linecap="round"/><rect x="60" y="170" width="180" height="140" rx="14" fill="#E3E6E0"/><path d="M60 360 L260 120" stroke="#C0392B" stroke-width="10" stroke-linecap="round" opacity=".7"/></svg></div>
+  <div class="lab l1">The heavy jug<small>Plastic, bulky, sloshy</small></div>
+  <div class="pouch"><img src="src/just-7-pouch-front.jpg" alt=""></div>
+  <div class="lab l2">One flat pouch<small>About 6.4 x 9.6 in</small></div>
+  <div class="edge"></div>
+  <div class="edge-lab">About 1/8 in<br>thick<small>All 30 sheets inside</small></div>
+</div>
+<div class="price"><b>$0.25<small> a load</small></b><p><strong>$15 a pouch</strong> with subscribe and save<br>Same price every delivery</p></div>
+</body></html>

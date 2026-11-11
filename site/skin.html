@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap">
+<style id="j7-skin">
+/* Site skin: matches the homepage. Will's mint, sky, plum and sun, the logo's rounded font, heavier type. */
+:root{--sage:#5FB389;--sage-ink:#2F7D57;--sage-tint:#E3F4EA;--sun:#FFC94A;--plum:#5B2A5E;--f-body:"Nunito",ui-rounded,"SF Pro Rounded",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sage:#6CC296;--sage-ink:#7FD3A6;--sage-tint:#16291F}}
+:root[data-theme="dark"]{--sage:#6CC296;--sage-ink:#7FD3A6;--sage-tint:#16291F}
+body{font:600 18px/1.6 var(--f-body)}
+h1,h2{font-weight:900;letter-spacing:-.025em}
+main h1{font-size:clamp(2.6rem,8vw,4.8rem)}
+.pbar{font-family:var(--f-display);font-weight:800}
+.btn{font-weight:900}
+.cband{display:grid;grid-template-columns:5fr 7fr 9fr;height:10px}
+.cband span:nth-child(1){background:#5FB389}.cband span:nth-child(2){background:var(--sun)}.cband span:nth-child(3){background:#5B2A5E}
+.band.sage{background:#2F7D57}
+.eyebrow{font-weight:900}
+/* motion: lift on hover */
+.card,.post,.ben,.tile,.room,.claim,.prod-card,.out>div{transition:transform .25s cubic-bezier(.3,1.4,.5,1),box-shadow .25s}
+a.post:hover,a.card:hover,a.tile:hover,a.ben:hover{transform:translateY(-5px) rotate(-.4deg)}
+</style>
+<style id="j7-skin-menu">
+/* mobile menu pop on every page, logo stays visible above it */
+.top{z-index:70}
+@media (max-width:899px){.brand svg{height:40px}.top{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+.menu summary{background:var(--sky-deep);border:0;box-shadow:0 4px 0 #144C74;width:48px;height:48px}
+.menu summary span,.menu summary span::before,.menu summary span::after{background:#fff;height:3px}
+.menu[open] summary{background:var(--sun);box-shadow:0 4px 0 #B98A12}
+.menu[open] summary span::before,.menu[open] summary span::after{background:#2A2205}
+.menu .panel{background:var(--sky)!important;animation:none}
+.menu .panel>a{font:900 2.1rem/1.1 var(--f-display)!important;color:#fff!important;border-bottom:2px solid rgba(255,255,255,.25)!important}
+.menu .panel>a:nth-of-type(1){color:var(--sun)!important}
+.menu .panel .sub a{background:#fff!important;color:#22302B!important;border:0!important;font-weight:900!important;box-shadow:0 3px 0 rgba(0,0,0,.15)}
+.menu .panel .mfoot .btn{background:var(--sun);color:#2A2205;box-shadow:0 5px 0 #B98A12}
+</style>
+<style id="j7-skin-bar">.pbar{background:var(--ink);color:#fff;font-size:.95rem;padding-block:10px}.pbar a{color:var(--sun);text-decoration:none}.pbar a:hover b{text-decoration:underline}</style>
+<style id="j7-skin-head">
+/* plum header on every page */
+.top{background:#5B2A5E!important;border-bottom:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body::before{background:#5B2A5E!important}
+.top .brand{color:#fff}
+.top .brand svg{height:44px!important}
+.top .nav>a,.top .nav .dd>button{color:#fff!important}
+.top .nav>a:hover,.top .nav>a[aria-current],.top .nav .dd>button:hover,.top .nav .dd>button[aria-current]{background:rgba(255,255,255,.14)!important;color:#FFC94A!important}
+.top .cartbtn{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.top .wl-btn,.top>.wrap>.btn{background:#FFC94A;color:#2A2205;box-shadow:0 4px 0 #B98A12}
+</style>
