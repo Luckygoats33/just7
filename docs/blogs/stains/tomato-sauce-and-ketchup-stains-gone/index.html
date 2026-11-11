@@ -1183,7 +1183,7 @@ body::before{background:#5B2A5E!important}
   });
 })();</script>
 <script id="j7-menu-js">(function(){document.querySelectorAll("details.menu,details.mmenu").forEach(function(d){function place(){var h=d.closest("header,nav");var p=d.querySelector(".panel,.mpanel");if(h&&p&&d.open){p.style.top=Math.max(0,h.getBoundingClientRect().bottom)+"px"}}d.addEventListener("toggle",place);window.addEventListener("scroll",place,{passive:true});place()})})();</script>
-<script id="j7-top">try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}if(!location.hash)window.scrollTo(0,0);</script>
+<script id="j7-top">try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}if(!location.hash){window.scrollTo(0,0);window.addEventListener("load",function(){[0,80,250,600].forEach(function(t){setTimeout(function(){if(!location.hash&&!window.__j7user)window.scrollTo(0,0)},t)})});["wheel","touchstart","keydown"].forEach(function(n){window.addEventListener(n,function(){window.__j7user=1},{once:true,passive:true})})}</script>
 <style id="j7-go-css">
 .j7-go{position:fixed;inset:0;z-index:999;background:#5B2A5E;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .18s ease}
 .j7-go.on{opacity:1;pointer-events:auto}
