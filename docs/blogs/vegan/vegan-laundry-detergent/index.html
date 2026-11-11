@@ -1223,7 +1223,7 @@ body::before{background:#5B2A5E!important}
     var u;try{u=new URL(a.href,location.href)}catch(err){return}
     var same=u.pathname.replace(/index\.html$/,"")===location.pathname.replace(/index\.html$/,"")&&!u.hash;
     if(same){e.preventDefault();e.stopPropagation();document.querySelectorAll("details[open]").forEach(function(d){d.open=false});document.documentElement.style.overflow="";
-      var o=document.querySelector(".j7-go");if(o)o.classList.remove("on");window.scrollTo({top:0,behavior:"smooth"});return}
+      var o=document.querySelector(".j7-go");if(o)o.classList.remove("on");top();setTimeout(top,60);setTimeout(top,250);return}
     try{sessionStorage.setItem(KEY,"1")}catch(err){}
   },true);
 })();</script>
