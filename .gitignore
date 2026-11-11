@@ -2,3 +2,5 @@ site/assets/
 site/preview-*.png
 __pycache__/
 *.pyc
+video/raw/
+video/frame*.jpg
