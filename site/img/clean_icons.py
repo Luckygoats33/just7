@@ -1,4 +1,4 @@
-"""Brand rule (Will, Nov 11): no Pet-safe or Plant-based icons. Inpaints the two outer
+"""Brand rule (Will, Nov 11): no pet-claim or plant-claim icons. Inpaints the two outer
 icons on the pouch front (keeps Vegan and No musks, which stay centered as a pair).
 Originals are kept as *-orig.jpg next to the source."""
 import cv2, numpy as np, os, shutil

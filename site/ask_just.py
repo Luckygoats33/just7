@@ -5,12 +5,7 @@ import os, re, json
 HERE = os.path.dirname(os.path.abspath(__file__)); D = os.path.normpath(os.path.join(HERE, "..", "docs"))
 JS = open(os.path.join(HERE, "ask_just.js"), encoding="utf-8").read().strip()
 TAG = '<script id="j7-ask">' + JS + "</script>"
-FIXES = [  # legacy on-page copies of the old KB answers
-    (' We\'ll only say "pet-safe" once a vet or toxicologist signs off.', ' A vet or toxicologist review is pending on our <a href="/pages/claims/">claims page</a>.'),
-    (' We&#x27;ll only say &quot;pet-safe&quot; once a vet or toxicologist signs off.', ' A vet or toxicologist review is pending on our <a href="/pages/claims/">claims page</a>.'),
-    (" We'll only say \\\"pet-safe\\\" once a vet or toxicologist signs off.", " A vet or toxicologist review is pending on our claims page."),
-    (' We\'ll only say "pet-safe" once a vet or toxicologist signs off', ' A vet or toxicologist review is pending on our claims page'),
-]
+FIXES = []  # legacy KB-answer fixes retired Nov 11: sources now carry the approved wording
 def kb_empty(s):
     k = "window.JUST_KB="; i = s.find(k)
     if i < 0: return s

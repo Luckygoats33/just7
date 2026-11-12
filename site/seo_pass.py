@@ -109,35 +109,10 @@ PLACEHOLDER_RES = [
     (r'class="post draft"', 'class="post"'),
 ]
 
+# brand rule (Will, Nov 11): no pet-health or plant claims anywhere. docs/ is already clean;
+# the guard below fails the pass if banned wording ever comes back, instead of quietly rewording it.
+BANNED = re.compile(r"pet[- ]?safe|plant[- ]?based", re.I)
 CLAIM_SUBS = [
-    # brand rule: no Pet-safe / Plant-based claims (education about the words themselves stays)
-    ("Pet-Safe Laundry Detergent: What to Look For and What to Avoid", "Pet-Friendly Laundry Detergent: What to Look For and What to Avoid"),
-    ("Pet-Safe Laundry Detergent: What to Look For", "Pet-Friendly Laundry Detergent: What to Look For"),
-    ("Pet-Safe Laundry Detergent", "Pet-Friendly Laundry Detergent"),
-    ("Clear pet-safety choices", "Clear pet-friendly choices"),
-    ("What Is Pullulan? The Plant-Based Film in Our Sheets", "What Is Pullulan? The Starch-Based Film in Our Sheets"),
-    ("What Is Pullulan? The Plant-Based Laundry Sheet Film", "What Is Pullulan? The Starch-Based Laundry Sheet Film"),
-    ("PVA or a plant-based film?", "PVA or a starch-based film?"),
-    ("PVA or a plant-based film like pullulan?", "PVA or a starch-based film like pullulan?"),
-    ("A short-list sheet with a plant-based film.", "A short-list sheet with a pullulan film."),
-    ("Why ours is plant-based", "Why ours comes from plants"),
-    ("Two plant-based building blocks", "Two plant-derived building blocks"),
-    ("Plant-based, with nothing from animals.", "Plant-derived, with nothing from animals."),
-    ("Yes (plant-based)", "Yes (plant-derived)"),
-    ("Laundry: plant-based sheets,", "Laundry: vegan sheets with a short label,"),
-    ("One with only plant-based and mineral ingredients, like Just 7.", "One with only plant-derived and mineral ingredients, like Just 7."),
-    ("Every ingredient is plant-based or mineral.", "Every ingredient is plant-derived or mineral."),
-    ("Is Just 7 plant-based?", "What is Just 7 made from?"),
-    ("Is the glycerin really plant-based?", "Is the glycerin really from plants?"),
-    ("A plant-based sheet like Just 7 sidesteps it.", "A pullulan-film sheet like Just 7 sidesteps it."),
-    ("Plant-based avoids the PVA question.", "A pullulan film avoids the PVA question."),
-    ("with plant-derived ingredients and a plant-based film.", "with plant-derived ingredients and a starch-based pullulan film."),
-    ("Sulfates, because plant-based glucosides", "Sulfates, because plant-derived glucosides"),
-    ("Pick a plant-based film to skip PVA", "Pick a pullulan or starch film to skip PVA"),
-    ("Look for cardboard packaging and a plant-based film.", "Look for cardboard packaging and a pullulan film."),
-    ("Are plant-based sheets safe if eaten? No detergent is safe to eat, plant-based or not.", "Are laundry sheets safe if eaten? No detergent is safe to eat."),
-    ("Is every ingredient plant-based or synthetic?", "Is every ingredient plant-derived, mineral or synthetic?"),
-    ("<td>Pet-safe</td>", "<td>Pet-friendly</td>"),
     ("[contact email, set at launch]", '<a href="mailto:just7sheets@gmail.com">just7sheets@gmail.com</a>'),
 ]
 
@@ -148,7 +123,7 @@ BLOG_MAP = {
     "are-laundry-sheets-worth-it": "/blogs/compare/cost-per-load-how-to-compare-any-detergent/",
     "tru-earth-vs-earth-breeze": "/blogs/compare/tru-earth-vs-earth-breeze-vs-just-7/",
     "pva-free-laundry-sheets": "/blogs/planet/pva-free-laundry-sheets-why-the-film-matters/",
-    "pet-safe-laundry-detergent": "/blogs/pets/pet-safe-laundry-detergent/",
+    "laundry-detergent-for-homes-with-pets": "/blogs/pets/laundry-detergent-for-homes-with-pets/",
 }
 def content_fixes(s):
     # draft "→ /blog/slug" pointers become real links
@@ -158,14 +133,8 @@ def content_fixes(s):
     s = re.sub(r'<li><a href="#other-options">Other options</a></li>', '', s)
     s = s.replace("<p>[Add each brand&#x27;s price per load from its own site, with read date.]</p>",
         "<p>Just 7 works out to about $0.25 a load with subscribe and save: $15 for 30 sheets, up to 60 loads. Prices change, so check each brand&#x27;s own site and compare per load, not per box (<a href=\"/blogs/compare/cost-per-load-how-to-compare-any-detergent/\">here&#x27;s how</a>).</p>")
-    s = s.replace("<strong>Laundry:</strong> plant-based sheets", "<strong>Laundry:</strong> vegan sheets with a short label")
-    s = s.replace("Laundry: plant-based sheets", "Laundry: vegan sheets with a short label")
-    s = s.replace("Are plant-based sheets safe if eaten?", "Are laundry sheets safe if eaten?").replace("No detergent is safe to eat, plant-based or not.", "No detergent is safe to eat.")
-    s = s.replace("because plant-based glucosides", "because plant-derived glucosides")
-    s = s.replace("<h3>Pet-safe</h3>", "<h3>Pet-friendly</h3>")
     s = s.replace("nothing from animals. Subscribe and save is coming. 7% of every sale goes to animal sanctuaries.",
                   "nothing from animals. $19, or $15 with subscribe and save. Pre-order now. Orders ship Jan 11th.")
-    s = s.replace("<strong>Plant-based,</strong> with nothing from animals.", "<strong>Plant-derived,</strong> with nothing from animals.")
     if 'id="waitlist"' not in s:
         s = s.replace('href="#waitlist"', 'href="/pages/waitlist/"')
     return s
@@ -232,7 +201,7 @@ HERO_JS = ('<script id="j7-hvid-js">(function(){var v=document.querySelector("[d
   'if(!matchMedia("(prefers-reduced-motion: reduce)").matches){v.autoplay=true;v.play().catch(function(){})}}'
   'if(document.readyState==="complete")setTimeout(go,400);else addEventListener("load",function(){setTimeout(go,400)})})();</script>')
 def video(s):
-    # 3.2 MB HEVC mobile video (it also showed the old Pet-safe / Plant-based pouch icons)
+    # 3.2 MB HEVC mobile video (it also showed the old pouch icons with retired claims)
     # -> one 235 KB H.264 960x540 clip, loaded after the page is done, cropped 4:3 on phones.
     s = s.replace('<video data-hvid muted loop playsinline preload="none" poster="/assets/just7-product-16x9-poster.jpg"',
                   '<video data-hvid muted loop playsinline preload="none" width="960" height="540" poster="/assets/just7-hero-16x9-poster.webp"')
@@ -512,6 +481,7 @@ def run():
             if not n.endswith(".html"): continue
             f = os.path.join(r, n); fpath = page_path(f)
             s = open(f, encoding="utf-8").read(); o = s
+            if "data-j7-redirect" in s: continue  # old-URL redirect stubs stay minimal
             s = fix_home_head(s)
             s = absolutize(s, fpath)
             s = fonts(s, fpath == "/index.html")
@@ -527,6 +497,8 @@ def run():
             s = ga(s)
             s = lead(s)
             s = schema(s, fpath, f)
+            if BANNED.search(re.sub(r'(?:href|content)="[^"]*"', "", s)):
+                raise SystemExit("claim_guard: banned wording in " + fpath)
             if s != o: open(f, "w", encoding="utf-8").write(s)
 
 if __name__ == "__main__":
