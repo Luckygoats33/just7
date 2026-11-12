@@ -344,6 +344,24 @@ def gsc(s, fpath):
     s = re.sub(r'<meta name="google-site-verification"[^>]*>\n?', '', s)
     return s.replace("<title>", f'<meta name="google-site-verification" content="{tok}">\n<title>', 1)
 
+GA_ID = "G-WMDPS6GT3J"
+GA_JS = ('<script id="j7-ga">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}'
+  'gtag("js",new Date());gtag("config","' + GA_ID + '",{allow_google_signals:false,allow_ad_personalization_signals:false});'
+  # gtag.js loads 3.5 s after window load at the next idle moment, or on first interaction, whichever is first
+  '(function(){var d=0;function l(){if(d)return;d=1;var s=document.createElement("script");s.async=true;'
+  's.src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '";document.head.appendChild(s)}'
+  'function idle(){setTimeout(function(){(window.requestIdleCallback||function(f){setTimeout(f,1)})(l,{timeout:3000})},3500)}'
+  'if(document.readyState==="complete")idle();else addEventListener("load",idle);'
+  '["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});'
+  # generate_lead on a valid waitlist / pre-order submit (capture phase, before the form is replaced)
+  'document.addEventListener("submit",function(e){var f=e.target;if(!f||!f.matches||!f.matches("[data-waitlist]"))return;'
+  'var m=f.querySelector("input[type=email]");if(!m||!m.value||!m.checkValidity())return;'
+  'gtag("event","generate_lead",{form_id:f.id||"waitlist",form_location:location.pathname,method:"waitlist_form"});'
+  'if(typeof window.j7OnLead==="function")try{window.j7OnLead(m.value,f)}catch(err){}},true)})();</script>')
+def ga(s):
+    s = re.sub(r'<script id="j7-ga">.*?</script>\n?', '', s, flags=re.S)
+    return s.replace("</head>", GA_JS + "\n</head>", 1)
+
 def head_fixes(s, fpath):
     s = s.replace('<meta name="claude:viewport-fit-sides" content="cover">\n', '').replace('<meta name="claude:viewport-fit-sides" content="cover">', '')
     url = SITE + pretty(fpath)
@@ -384,6 +402,7 @@ def run():
             s = video(s)
             s = head_fixes(s, fpath)
             s = gsc(s, fpath)
+            s = ga(s)
             s = schema(s, fpath, f)
             if s != o: open(f, "w", encoding="utf-8").write(s)
 
