@@ -3,6 +3,7 @@ import prices
 import topbar
 import footnote
 import explainer
+import videos
 S = r'C:\Users\willw\AppData\Local\Temp\claude\d4d7ba6eb5afc097\275108eb-5c48-4af4-b45a-03fa3ae9be1c\scratchpad'
 A = os.path.join(S, r'artifact-files\92ae9c9c-dc94-4f43-b46b-15f6e3b8e568')
 V = os.path.join(S, 'verify')
@@ -34,6 +35,7 @@ for root, _, files in os.walk(A):
         s = topbar.apply(rel, s)
         s = footnote.apply(rel, s)
         s = explainer.apply(rel, s)
+        s = videos.apply(rel, s)
         out = os.path.join(OUT, rel)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8', newline='').write(s)
@@ -44,5 +46,6 @@ if 'id="j7-motion"' not in h:
     h = h + '\n' + motion
 h = prices.apply('index.html', h)
 h = footnote.apply('index.html', h)
+h = videos.apply('index.html', h)
 open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8', newline='').write(h)
 print(done, 'pages + homepage')
