@@ -7,3 +7,14 @@ Website for Just 7 laundry detergent sheets (Just Seven). Seven ingredients, eve
 - `product-images/` the 5 product page images (HTML sources and PNGs)
 
 Pre-order now. Orders ship Jan 11th. Prices: $15 subscribe, $14 each on 3+, $19 one-time. 90-day keep-the-pouch promise.
+
+## After any rebuild
+
+`docs/` has post-build passes that the old `site/build_all.py` does not know about. After regenerating pages, run:
+
+```
+python3 site/seo_pass.py        # links, fonts, schema, a11y, brand-claim wording (idempotent)
+python3 site/sitemap_robots.py  # sitemap.xml, robots.txt (AI crawlers allowed), llms.txt
+```
+
+Google Search Console HTML-tag verification: put the `content="..."` token in `site/gsc-token.txt` and rerun `seo_pass.py`.
