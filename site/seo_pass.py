@@ -219,7 +219,7 @@ ORG = {"@context": "https://schema.org", "@type": "Organization", "@id": SITE + 
        "url": SITE + "/", "logo": SITE + "/icon-512.png", "email": "just7sheets@gmail.com",
        "slogan": "Seven ingredients. Zero compromise.",
        "description": "Laundry detergent sheets with seven ingredients, every one named. Fragrance-free, nothing from animals. 7% of every sale goes to animal sanctuaries.",
-       "sameAs": ["https://www.facebook.com/just7sheets", "https://www.instagram.com/just7sheets/", "https://x.com/just7sheets", "https://www.linkedin.com/company/just7sheets/", "https://www.youtube.com/@just7sheets"]}
+       "sameAs": ["https://www.facebook.com/just7sheets", "https://www.instagram.com/just7sheets/", "https://x.com/just7sheets", "https://www.linkedin.com/company/just7sheets/", "https://www.youtube.com/@just7sheets", "https://www.tiktok.com/@just7sheets"]}
 WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", "name": "Just 7 Laundry Sheets", "url": SITE + "/", "publisher": {"@id": SITE + "/#org"}, "inLanguage": "en-US"}
 
 def offer(price, name, extra=None):
