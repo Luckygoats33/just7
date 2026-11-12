@@ -26,7 +26,7 @@ QA = [
 ("Does pullulan dissolve in cold water?", "Just 7 is designed to dissolve in warm or cold water. We're running our own cold-water test and will share it." + P),
 ("Is the pullulan from corn or tapioca?", "Pullulan is made from plant starch such as tapioca or corn. We'll name the confirmed starch source with the final film spec."),
 # lauryl
-("What is lauryl glucoside?", "A plant-derived cleaner that goes after body oils and grease, with a little lather. [More on lauryl glucoside](/blogs/ingredients/lauryl-glucoside-vs-sodium-lauryl-sulfate-same-name-different/)."),
+("What is lauryl glucoside?", "A cleaner that goes after body oils and grease, with a little lather. [More on lauryl glucoside](/blogs/ingredients/lauryl-glucoside-vs-sodium-lauryl-sulfate-same-name-different/)."),
 ("Is lauryl glucoside a sulfate?", "No. It sounds like sodium lauryl sulfate, but it's a sugar-based cleaner, not a sulfate."),
 ("Where does lauryl glucoside come from?", "Plant sugar from corn or potato, joined to a fatty alcohol from coconut or palm. The final source is being confirmed." + P),
 ("Why use both lauryl and decyl glucoside?", "They're from the same sugar-based family. Decyl is the gentle everyday cleaner and lauryl adds more grease-lifting muscle."),

@@ -24,7 +24,7 @@ QA = [
 ("Do your suppliers test on animals?", "We require written assurance that our suppliers don't test on animals for our ingredients." + P),
 ("Is Just 7 sold where animal testing is required?", "We're selling direct at launch and don't plan to sell anywhere that requires animal testing."),
 ("Is Just 7 vegan-friendly for washing wool?", "The detergent is animal-free. Whether to wear wool is your call. Just 7 has no enzymes, so it's gentle on wool fibers."),
-("What does plant-derived mean?", "Made from a plant source through processing. [Natural vs plant-derived vs organic](/blogs/vegan/natural-vs-plant-derived-vs-organic/)."),
+("What does a plant claim on a detergent label mean?", "It isn't a regulated term. It can mean some ingredients started from a plant and were then processed, or it can be marketing. We don't use plant claims on Just 7; we list every ingredient instead. [What plant claims mean](/blogs/vegan/what-do-plant-claims-mean-on-cleaning-products/)."),
 ("How do I spot greenwashing?", "Vague words with no proof, pictures of leaves, and missing ingredient lists. [Spot greenwashing](/blogs/vegan/greenwashing-how-to-spot-it-on-cleaning-products/)."),
 ("What do laundry care symbols mean?", "Tub for washing, triangle for bleach, square for drying, iron for ironing, circle for dry cleaning. [Symbols decoded](/blogs/vegan/laundry-care-symbols-decoded/)."),
 ("Is Just 7 halal or kosher certified?", "No. We don't have those certifications."),

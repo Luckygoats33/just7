@@ -109,9 +109,9 @@ PLACEHOLDER_RES = [
     (r'class="post draft"', 'class="post"'),
 ]
 
-# brand rule (Will, Nov 11): no pet-health or plant claims anywhere. docs/ is already clean;
+# brand rule (Will, Nov 11): no pet-health or plant-source claims anywhere. docs/ is already clean;
 # the guard below fails the pass if banned wording ever comes back, instead of quietly rewording it.
-BANNED = re.compile(r"pet[- ]?safe|plant[- ]?based", re.I)
+BANNED = re.compile(r"pet[- ]?safe|plant[- ]?based|plant[- ]?derived|derived from plant[s]|made from plant[s]|plant[- ]?sourced", re.I)
 CLAIM_SUBS = [
     ("[contact email, set at launch]", '<a href="mailto:just7sheets@gmail.com">just7sheets@gmail.com</a>'),
 ]

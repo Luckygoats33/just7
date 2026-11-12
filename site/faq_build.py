@@ -5,7 +5,7 @@ Idempotent. Order after any rebuild: creators.py -> seo_pass.py -> faq_build.py 
 import os, re, json, html, glob, difflib, importlib.util, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); D = os.path.normpath(os.path.join(HERE, "..", "docs"))
 SITE = "https://just7sheets.com"; TARGET = 1111
-BANNED = re.compile(r"pet[\s-]?safe|plant[\s-]?based", re.I)
+BANNED = re.compile(r"pet[\s-]?safe|plant[\s-]?based|plant[\s-]?derived|derived from plant[s]|made from plant[s]|plant[\s-]?sourced", re.I)
 SUP = '<sup class="p"><a href="/pages/claims/" title="Pending proof: see our claims page" aria-label="Pending proof: see our claims page">†</a></sup>'
 PRE = "Pre-order now. Orders ship Jan 11th."
 

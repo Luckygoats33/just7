@@ -24,7 +24,7 @@ QA = [
 ("Is Just 7 made in the USA?", "We're finalizing manufacturing with our partner now and will state the country of origin on the pouch and this page before launch."),
 ("Who makes Just 7?", "Just Seven, a small brand that reads every label. We're working with a manufacturer on samples now."),
 ("What makes Just 7 different?", "Seven ingredients, every one named and explained. No fragrance, no dyes, no PVA film, nothing from animals, and 7% of every sale to animal sanctuaries and nonprofits." + P),
-("Is Just 7 natural?", "We don't use the word \"natural\" because it has no legal definition on cleaning products. We list all seven ingredients and where each comes from instead. [Natural vs plant-derived vs organic](/blogs/vegan/natural-vs-plant-derived-vs-organic/)."),
+("Is Just 7 natural?", "We don't use the word \"natural\" because it has no legal definition on cleaning products. We list all seven ingredients and where each comes from instead. [Natural vs organic detergent claims](/blogs/vegan/natural-vs-organic-detergent-claims/)."),
 ("Is Just 7 non-toxic?", "We don't use \"non-toxic\" because it has no standard definition. We name every ingredient, and like any detergent, it isn't food: keep it away from kids and pets."),
 ("Is Just 7 organic?", "No organic claim. A few of our ingredients come from plants, but none is certified organic."),
 ("Is Just 7 eco-friendly?", "It's designed to be lighter on the planet: no jug, a pullulan film instead of PVA, and a thin pouch. We publish what we can prove and what we're still testing on our [claims page](/pages/claims/)."),
