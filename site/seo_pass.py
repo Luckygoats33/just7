@@ -384,6 +384,128 @@ def head_fixes(s, fpath):
     # body-level duplicate Google font link (already removed in fonts()); keep head tidy
     return s
 
+KLAVIYO_COMPANY = "TGx3kB"
+KLAVIYO_LIST = "URe8a8"
+KLAVIYO_REV = "2024-10-15"
+CONSENT_HTML = (
+    '<p class="fine j7-consent">By joining, you agree to get emails from Just 7. Unsubscribe anytime. '
+    '<a href="/policies/privacy-policy/">Privacy policy</a>.</p>'
+)
+LEAD_JS = (
+    '<script id="j7-lead">(function(){var C="' + KLAVIYO_COMPANY + '",L="' + KLAVIYO_LIST + '",pend=new WeakMap();'
+    'window.j7OnLead=function(email,form){'
+    'if(form&&pend.has(form))return pend.get(form);'
+    'var body=JSON.stringify({data:{type:"subscription",attributes:{'
+    'custom_source:"Just 7 site "+((location&&location.pathname)||"/"),'
+    'profile:{data:{type:"profile",attributes:{email:String(email||"").trim()}}}'
+    '},relationships:{list:{data:{type:"list",id:L}}}}});'
+    'var p=fetch("https://a.klaviyo.com/client/subscriptions/?company_id="+C,{'
+    'method:"POST",headers:{"Content-Type":"application/vnd.api+json","revision":"' + KLAVIYO_REV + '"},'
+    'body:body,keepalive:true}).then(function(r){if(!r.ok)throw r;return r});'
+    'if(form){pend.set(form,p);var clr=function(){pend.delete(form)};p.then(clr,clr)}'
+    'return p}})();</script>'
+)
+
+# Existing in-page handlers (pretty inner pages, then minified homepage). Replaced so
+# success waits on j7OnLead (2xx) and a failure keeps the email with a short error.
+OLD_WL_HANDLER = r"""$$("form[data-waitlist]").forEach(function (f) {
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = f.querySelector("input[type=email]");
+      if (!email.value || !email.checkValidity()) { email.focus(); email.reportValidity && email.reportValidity(); return; }
+      // TODO: when the store or email tool is picked, POST the form data here.
+      var box = document.createElement("div");
+      box.className = "done"; box.setAttribute("role", "status");
+      box.innerHTML = '<div class="big">You\'re on the list.</div><p>Seven ingredients, one email when it\'s ready.</p>' +
+        '<p class="fine">Preview only: this form isn\'t connected yet, so nothing was sent.</p>';
+      f.innerHTML = ""; f.appendChild(box);
+      if (!reduce) burst(f);
+    });
+  });"""
+
+NEW_WL_HANDLER = r"""$$("form[data-waitlist]").forEach(function (f) {
+    if (f.__j7lead) return; f.__j7lead = 1;
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = f.querySelector("input[type=email]");
+      if (!email.value || !email.checkValidity()) { email.focus(); email.reportValidity && email.reportValidity(); return; }
+      var btn = f.querySelector('[type=submit]');
+      if (btn) { btn.disabled = true; btn.setAttribute("aria-busy", "true"); }
+      var prev = f.querySelector(".j7-lead-err"); if (prev) prev.textContent = "";
+      var go = (typeof window.j7OnLead === "function") ? window.j7OnLead(email.value, f) : Promise.reject();
+      Promise.resolve(go).then(function () {
+        var box = document.createElement("div");
+        box.className = "done"; box.setAttribute("role", "status");
+        box.innerHTML = '<div class="big">You\'re on the list.</div><p>Seven ingredients, one email when it\'s ready.</p>';
+        f.innerHTML = ""; f.appendChild(box);
+        if (!reduce) burst(f);
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.removeAttribute("aria-busy"); }
+        var err = f.querySelector(".j7-lead-err");
+        if (!err) {
+          err = document.createElement("p");
+          err.className = "fine j7-lead-err";
+          err.setAttribute("role", "alert");
+          err.style.color = "#8B2E2E";
+          if (btn && btn.parentNode) btn.parentNode.insertBefore(err, btn.nextSibling);
+          else f.appendChild(err);
+        }
+        err.textContent = "We couldn't add you just now. Please try again in a moment.";
+      });
+    });
+  });"""
+
+OLD_HOME_HANDLER = (
+    '$$("form[data-waitlist]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();'
+    'var email=f.querySelector("input[type=email]");if(!email.value||!email.checkValidity()){email.focus();'
+    'email.reportValidity&&email.reportValidity();return}var box=document.createElement("div");box.className="done";'
+    'box.setAttribute("role","status");box.innerHTML=\'<div class="big">You\\\'re on the list.</div>'
+    '<p>Seven ingredients, one email when it\\\'s ready.</p>'
+    '<p class="fine">Preview only: this form isn\\\'t connected yet, so nothing was sent.</p>\';'
+    'f.innerHTML="";f.appendChild(box)})});'
+)
+
+NEW_HOME_HANDLER = (
+    '$$("form[data-waitlist]").forEach(function(f){if(f.__j7lead)return;f.__j7lead=1;f.addEventListener("submit",function(e){'
+    'e.preventDefault();var email=f.querySelector("input[type=email]");if(!email.value||!email.checkValidity()){'
+    'email.focus();email.reportValidity&&email.reportValidity();return}var btn=f.querySelector("[type=submit]");'
+    'if(btn){btn.disabled=true;btn.setAttribute("aria-busy","true")}var prev=f.querySelector(".j7-lead-err");'
+    'if(prev)prev.textContent="";var go=(typeof window.j7OnLead==="function")?window.j7OnLead(email.value,f):Promise.reject();'
+    'Promise.resolve(go).then(function(){var box=document.createElement("div");box.className="done";'
+    'box.setAttribute("role","status");box.innerHTML=\'<div class="big">You\\\'re on the list.</div>'
+    '<p>Seven ingredients, one email when it\\\'s ready.</p>\';f.innerHTML="";f.appendChild(box)}).catch(function(){'
+    'if(btn){btn.disabled=false;btn.removeAttribute("aria-busy")}var err=f.querySelector(".j7-lead-err");'
+    'if(!err){err=document.createElement("p");err.className="fine j7-lead-err";err.setAttribute("role","alert");'
+    'err.style.color="#8B2E2E";if(btn&&btn.parentNode)btn.parentNode.insertBefore(err,btn.nextSibling);else f.appendChild(err)}'
+    'err.textContent="We couldn\'t add you just now. Please try again in a moment."})})});'
+)
+
+def add_consent(s):
+    """Put a short email-consent line under each waitlist email field, once."""
+    def one(m):
+        form = m.group(0)
+        if "j7-consent" in form or "By joining, you agree to get emails from Just 7." in form:
+            return form
+        nform, n = re.subn(
+            r'(<input\b[^>]*type="email"[^>]*>\s*</div>)',
+            r'\1\n' + CONSENT_HTML,
+            form,
+            count=1,
+        )
+        return nform if n else form
+    return re.sub(r'<form\b[^>]*data-waitlist[\s\S]*?</form>', one, s)
+
+def lead(s):
+    """Client-side Klaviyo subscribe on waitlist / pre-order forms. No klaviyo.js."""
+    s = re.sub(r'<script id="j7-lead">.*?</script>\n?', '', s, flags=re.S)
+    s = s.replace("</head>", LEAD_JS + "\n</head>", 1)
+    if OLD_WL_HANDLER in s:
+        s = s.replace(OLD_WL_HANDLER, NEW_WL_HANDLER)
+    if OLD_HOME_HANDLER in s:
+        s = s.replace(OLD_HOME_HANDLER, NEW_HOME_HANDLER)
+    s = add_consent(s)
+    return s
+
 def run():
     for r, _, fs in os.walk(D):
         for n in fs:
@@ -403,6 +525,7 @@ def run():
             s = head_fixes(s, fpath)
             s = gsc(s, fpath)
             s = ga(s)
+            s = lead(s)
             s = schema(s, fpath, f)
             if s != o: open(f, "w", encoding="utf-8").write(s)
 

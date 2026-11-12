@@ -653,6 +653,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .ph a{color:#17557F!important}
 </style>
 <script id="j7-ga">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-WMDPS6GT3J",{allow_google_signals:false,allow_ad_personalization_signals:false});(function(){var d=0;function l(){if(d)return;d=1;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-WMDPS6GT3J";document.head.appendChild(s)}function idle(){setTimeout(function(){(window.requestIdleCallback||function(f){setTimeout(f,1)})(l,{timeout:3000})},3500)}if(document.readyState==="complete")idle();else addEventListener("load",idle);["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});document.addEventListener("submit",function(e){var f=e.target;if(!f||!f.matches||!f.matches("[data-waitlist]"))return;var m=f.querySelector("input[type=email]");if(!m||!m.value||!m.checkValidity())return;gtag("event","generate_lead",{form_id:f.id||"waitlist",form_location:location.pathname,method:"waitlist_form"});if(typeof window.j7OnLead==="function")try{window.j7OnLead(m.value,f)}catch(err){}},true)})();</script>
+<script id="j7-lead">(function(){var C="TGx3kB",L="URe8a8",pend=new WeakMap();window.j7OnLead=function(email,form){if(form&&pend.has(form))return pend.get(form);var body=JSON.stringify({data:{type:"subscription",attributes:{custom_source:"Just 7 site "+((location&&location.pathname)||"/"),profile:{data:{type:"profile",attributes:{email:String(email||"").trim()}}}},relationships:{list:{data:{type:"list",id:L}}}}});var p=fetch("https://a.klaviyo.com/client/subscriptions/?company_id="+C,{method:"POST",headers:{"Content-Type":"application/vnd.api+json","revision":"2024-10-15"},body:body,keepalive:true}).then(function(r){if(!r.ok)throw r;return r});if(form){pend.set(form,p);var clr=function(){pend.delete(form)};p.then(clr,clr)}return p}})();</script>
 </head>
 <body>
 <style id="j7-skin">
@@ -735,6 +736,7 @@ body::before{background:#5B2A5E!important}
 <p style="color:#E6F2FB">And from the first pouch, 7% of every sale goes to animal sanctuaries and nonprofits.<sup class="p"><a href="/pages/claims/" title="Needs legal review: charity wording has state rules" aria-label="Needs legal review: charity wording has state rules">†</a></sup></p></div>
 <form data-waitlist novalidate>
 <div class="field"><label for="wl-email-blogs-vegan-what-does-plant-based-mean-on-cleaning-products">Email</label><input id="wl-email-blogs-vegan-what-does-plant-based-mean-on-cleaning-products" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
+<p class="fine j7-consent">By joining, you agree to get emails from Just 7. Unsubscribe anytime. <a href="/policies/privacy-policy/">Privacy policy</a>.</p>
 <fieldset class="fs"><legend>Who's in your home? <span class="mute" style="font-weight:600">(optional)</span></legend><div class="tog"><label><input type="checkbox" name="home" value="Dogs"><span>Dogs</span></label><label><input type="checkbox" name="home" value="Cats"><span>Cats</span></label><label><input type="checkbox" name="home" value="Other pets"><span>Other pets</span></label><label><input type="checkbox" name="home" value="Vegan household"><span>Vegan household</span></label><label><input type="checkbox" name="home" value="Sensitive skin"><span>Sensitive skin</span></label><label><input type="checkbox" name="home" value="Little kids"><span>Little kids</span></label></div></fieldset>
 <div class="field"><label for="wl-zip-blogs-vegan-what-does-plant-based-mean-on-cleaning-products">ZIP or postal code <span class="mute" style="font-weight:600">(optional, helps us plan shipping)</span></label><input id="wl-zip-blogs-vegan-what-does-plant-based-mean-on-cleaning-products" type="text" name="zip" autocomplete="postal-code" maxlength="12"></div>
 <button class="btn" type="submit">Pre-order now</button>
@@ -752,17 +754,34 @@ body::before{background:#5B2A5E!important}
 
   /* ---------- waitlist (front end only for now) ---------- */
   $$("form[data-waitlist]").forEach(function (f) {
+    if (f.__j7lead) return; f.__j7lead = 1;
     f.addEventListener("submit", function (e) {
       e.preventDefault();
       var email = f.querySelector("input[type=email]");
       if (!email.value || !email.checkValidity()) { email.focus(); email.reportValidity && email.reportValidity(); return; }
-      // TODO: when the store or email tool is picked, POST the form data here.
-      var box = document.createElement("div");
-      box.className = "done"; box.setAttribute("role", "status");
-      box.innerHTML = '<div class="big">You\'re on the list.</div><p>Seven ingredients, one email when it\'s ready.</p>' +
-        '<p class="fine">Preview only: this form isn\'t connected yet, so nothing was sent.</p>';
-      f.innerHTML = ""; f.appendChild(box);
-      if (!reduce) burst(f);
+      var btn = f.querySelector('[type=submit]');
+      if (btn) { btn.disabled = true; btn.setAttribute("aria-busy", "true"); }
+      var prev = f.querySelector(".j7-lead-err"); if (prev) prev.textContent = "";
+      var go = (typeof window.j7OnLead === "function") ? window.j7OnLead(email.value, f) : Promise.reject();
+      Promise.resolve(go).then(function () {
+        var box = document.createElement("div");
+        box.className = "done"; box.setAttribute("role", "status");
+        box.innerHTML = '<div class="big">You\'re on the list.</div><p>Seven ingredients, one email when it\'s ready.</p>';
+        f.innerHTML = ""; f.appendChild(box);
+        if (!reduce) burst(f);
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.removeAttribute("aria-busy"); }
+        var err = f.querySelector(".j7-lead-err");
+        if (!err) {
+          err = document.createElement("p");
+          err.className = "fine j7-lead-err";
+          err.setAttribute("role", "alert");
+          err.style.color = "#8B2E2E";
+          if (btn && btn.parentNode) btn.parentNode.insertBefore(err, btn.nextSibling);
+          else f.appendChild(err);
+        }
+        err.textContent = "We couldn't add you just now. Please try again in a moment.";
+      });
     });
   });
   function burst(host) {
