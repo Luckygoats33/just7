@@ -11,11 +11,11 @@ ICONS = {
     'water': '<path d="M32 10c10 14 16 22 16 30a16 16 0 0 1-32 0c0-8 6-16 16-30z"/><path d="M22 44h20"/>',
 }
 SCENES = [
-    ('film', 'Pullulan film', 'The sheet itself', 'Fermented plant starch holds everything together, then dissolves in the wash. No PVA.', 35, '#3A9BDC', '#1F6FA8'),
-    ('grease', 'Lauryl glucoside', 'The grease lifter', 'A plant sugar cleaner that pulls body oils and grease out of fabric.', 17, '#5FB389', '#2F7D57'),
+    ('film', 'Pullulan film', 'The sheet itself', 'A film made from fermented starch holds everything together, then dissolves in the wash. No PVA.', 35, '#3A9BDC', '#1F6FA8'),
+    ('grease', 'Lauryl glucoside', 'The grease lifter', 'A sugar-based cleaner that pulls body oils and grease out of fabric.', 17, '#5FB389', '#2F7D57'),
     ('gentle', 'Decyl glucoside', 'The gentle cleaner', 'Our main everyday cleaner. Mild, sugar-based, no sulfates.', 17, '#2F7D57', '#1E5A3D'),
     ('soda', 'Washing soda', 'The grime loosener', 'Softens the water and raises the pH so everyday dirt lets go.', 10, '#5B2A5E', '#3E1C40'),
-    ('flex', 'Plant glycerin', 'The flex', 'Keeps the sheet soft and bendy in the pouch. From plants, never animal fat.', 10, '#9E6AA1', '#6E4571'),
+    ('flex', 'Plant glycerin', 'The flex', 'Keeps the sheet soft and bendy in the pouch. Nothing from animals.', 10, '#9E6AA1', '#6E4571'),
     ('citrus', 'Sodium citrate', 'The water softener', 'Grabs the minerals in hard water so the cleaners can work.', 7, '#D9A21B', '#9A720F'),
     ('water', 'Water', 'The carrier', 'Carries it all while the sheet is made. Most of it dries off.', 4, '#6D9FC4', '#3F6E93'),
 ]

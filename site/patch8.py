@@ -31,11 +31,11 @@ icons = {
     'citrus': '<circle cx="32" cy="34" r="16"/><path d="M32 18v32M16 34h32M21 23l22 22M43 23L21 45"/>',
     'water': '<path d="M32 10c10 14 16 22 16 30a16 16 0 0 1-32 0c0-8 6-16 16-30z"/><path d="M22 44h20"/>',
 }
-items = [('film', 'Pullulan film', 'The sheet itself. From fermented plant starch, made to dissolve in the wash.', 35, '#3A9BDC'),
-         ('grease', 'Lauryl glucoside', 'Lifts body oils and grease. Made from plant sugar.', 17, '#5FB389'),
+items = [('film', 'Pullulan film', 'The sheet itself. A film made from fermented starch, made to dissolve in the wash.', 35, '#3A9BDC'),
+         ('grease', 'Lauryl glucoside', 'Lifts body oils and grease. A sugar-based cleaner.', 17, '#5FB389'),
          ('gentle', 'Decyl glucoside', 'The gentle everyday cleaner. No sulfates.', 17, '#2F7D57'),
          ('soda', 'Washing soda', 'Softens water so everyday grime lets go.', 10, '#5B2A5E'),
-         ('flex', 'Plant glycerin', 'Keeps the sheet soft and bendy. Plants only.', 10, '#9E6AA1'),
+         ('flex', 'Plant glycerin', 'Keeps the sheet soft and bendy. Nothing from animals.', 10, '#9E6AA1'),
          ('citrus', 'Sodium citrate', 'Handles hard water and keeps the pH steady.', 7, '#D9A21B'),
          ('water', 'Water', 'Carries it all while the sheet is made, then mostly dries off.', 4, '#6D9FC4')]
 cards = ''

@@ -43,7 +43,7 @@ QA = [
 ("Do you offer refills?", "Not at launch. Subscribe and save sends a fresh pouch on your schedule."),
 ("Is Just 7 better for the planet than liquid detergent?", "It skips the jug and the water weight. We'll publish a full comparison only when we have data to back it."),
 ("Do laundry sheets reduce plastic waste?", "They avoid plastic jugs. Whether the film counts as plastic depends on what it's made of; ours is pullulan."),
-("Is Just 7 made with renewable ingredients?", "Most ingredients come from plants or fermentation. Washing soda is a mineral."),
+("Is Just 7 made with renewable ingredients?", "We don't make a renewable-ingredients claim. We list every ingredient on the [ingredients page](/pages/ingredients/)."),
 ("Do you offset shipping?", "No, we don't offset or make carbon claims at launch."),
 ("Why don't you use cardboard packaging?", "We chose a thin resealable pouch to keep sheets dry. We'll confirm its material before launch."),
 ("How should I dispose of a damaged sheet?", "Use it in a wash. It's designed to dissolve."),

@@ -26,7 +26,7 @@ QA = [
 ("What makes Just 7 different?", "Seven ingredients, every one named and explained. No fragrance, no dyes, no PVA film, nothing from animals, and 7% of every sale to animal sanctuaries and nonprofits." + P),
 ("Is Just 7 natural?", "We don't use the word \"natural\" because it has no legal definition on cleaning products. We list all seven ingredients and where each comes from instead. [Natural vs organic detergent claims](/blogs/vegan/natural-vs-organic-detergent-claims/)."),
 ("Is Just 7 non-toxic?", "We don't use \"non-toxic\" because it has no standard definition. We name every ingredient, and like any detergent, it isn't food: keep it away from kids and pets."),
-("Is Just 7 organic?", "No organic claim. A few of our ingredients come from plants, but none is certified organic."),
+("Is Just 7 organic?", "No organic claim. None of our ingredients is certified organic."),
 ("Is Just 7 eco-friendly?", "It's designed to be lighter on the planet: no jug, a pullulan film instead of PVA, and a thin pouch. We publish what we can prove and what we're still testing on our [claims page](/pages/claims/)."),
 ("What does the † symbol mean on your site?", "It marks a claim we're still proving with documents or tests. Every one is tracked on our [claims page](/pages/claims/)."),
 ("Why do you show claims you haven't proven yet?", "So you can see exactly what's designed, what's documented and what's tested. We'd rather show our homework than overstate."),

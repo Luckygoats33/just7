@@ -29,7 +29,7 @@ QA = [
 ("Does Just 7 contain masking fragrance?", "No. Some unscented products use a masking scent. We use none."),
 ("Does Just 7 contain animal ingredients?", "No. Nothing from animals, including the glycerin." + P),
 ("Does Just 7 contain lanolin?", "No."),
-("Does Just 7 contain tallow?", "No. Tallow is animal fat, and our glycerin comes from plant oils." + P),
+("Does Just 7 contain tallow?", "No. Tallow is animal fat, and nothing in Just 7 comes from animals." + P),
 ("Does Just 7 contain hydrogen peroxide?", "No."),
 ("Does Just 7 contain EDTA?", "No. Sodium citrate softens our water instead."),
 ("Does Just 7 contain benzisothiazolinone?", "No. Just 7 has no preservatives on its list."),
