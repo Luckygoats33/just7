@@ -1,0 +1,97 @@
+CAT = ("brands", "Just 7 vs other brands", "Fair, sourced comparisons with brands people search for. We're not affiliated with any of them.")
+P = "†"
+EBC = "/blogs/compare/earth-breeze-ingredients-vs-just-7/"
+TRI = "/blogs/compare/tru-earth-vs-earth-breeze-vs-just-7/"
+NA = " Just 7 isn't affiliated with or endorsed by them."
+QA = [
+("Is Just 7 affiliated with any other detergent brand?", "No. Just Seven is an independent brand. Brand names on this page are their owners' trademarks, used only to compare."),
+("Why do you compare yourselves to other brands?", "Because people ask. We use each brand's own published information, link the source, and stick to facts."),
+("How do you make brand comparisons fair?", "We count every ingredient, film included, use each brand's own page, and date when we read it."),
+# Earth Breeze
+("Is Just 7 like Earth Breeze?", "Both are laundry sheets. Earth Breeze's detailed table lists 15 ingredients for its Fragrance Free Eco Sheets, including a PVA film. Just 7 lists seven, with a pullulan film." + NA + " [Side by side](" + EBC + ")."),
+("Just 7 vs Earth Breeze: what's different?", "The ingredient count (7 vs 15 in Earth Breeze's own table), the film (pullulan vs PVA), and enzymes: Earth Breeze lists protease and amylase; Just 7 has none. [Full comparison](" + EBC + ")."),
+("How many ingredients are in Earth Breeze?", "Earth Breeze's help center lists 15 for its Fragrance Free Eco Sheets and 16 for its US Fresh Scent sheets, film included. Source and date in [our comparison](" + EBC + ")."),
+("Does Earth Breeze use PVA?", "Earth Breeze's published ingredient table lists polyvinyl alcohol as its film. Just 7 uses pullulan." + P),
+("Is Earth Breeze vegan?", "Earth Breeze says its formula is vegan and cruelty-free. Check their site for the latest. Just 7 has nothing from animals." + P),
+("Are there Earth Breeze alternatives?", "Yes, several sheet brands exist. Just 7 is one, with seven ingredients and no PVA." + P + " [5 checks before you switch](/blogs/compare/earth-breeze-alternatives-5-checks-before-you-switch/)."),
+("Can I switch from Earth Breeze to Just 7?", "Yes. Dosing is similar: one sheet for a regular load, half for small, two for big or dirty. Put it in the drum first."),
+("Is Just 7 cheaper than Earth Breeze?", "Compare per load using their current price. Just 7 is about $0.25 a load with subscribe and save." + P),
+("Does Just 7 work in cold water like Earth Breeze?", "Just 7 is designed to dissolve in warm or cold water." + P + " We're running our own cold-water test."),
+("Is Just 7 made by Earth Breeze?", "No. Just Seven is an independent company, not affiliated with Earth Breeze."),
+("Does Earth Breeze have enzymes and Just 7 doesn't?", "Earth Breeze's published table lists protease and amylase. Just 7 has no enzymes; Just 9 is planned to add them."),
+("Earth Breeze vs Tru Earth vs Just 7?", "Tru Earth lists 14 ingredients, Earth Breeze 15, Just 7 seven, per each brand's own page. [Three-way comparison](" + TRI + ")."),
+# Tru Earth
+("Is Just 7 like Tru Earth?", "Both are laundry sheets. Tru Earth's own page lists 14 ingredients for its Fragrance-Free sheets, including PVA. Just 7 lists seven with a pullulan film." + NA + " [Comparison](" + TRI + ")."),
+("Just 7 vs Tru Earth: what's different?", "Ingredient count (7 vs 14 on Tru Earth's page) and film: Tru Earth lists polyvinyl alcohol; Just 7 uses pullulan." + P),
+("Does Tru Earth use PVA?", "Tru Earth's published ingredient list includes polyvinyl alcohol. Check their page for the current list."),
+("Can I switch from Tru Earth to Just 7?", "Yes. One sheet per regular load, placed in the drum first."),
+("Tru Earth vs Earth Breeze: which has fewer ingredients?", "Per each brand's own page, Tru Earth lists 14 and Earth Breeze 15 for their fragrance-free sheets. [Sources](" + TRI + ")."),
+# Tide
+("Is Just 7 like Tide Pods?", "No. Tide Pods are liquid detergent in a pod. Just 7 is a dry sheet you can tear for small loads." + NA),
+("Laundry sheets vs Tide Pods?", "Tide Pods are a pod format; Just 7 is a sheet. Independent testers have generally rated top pods ahead of sheets on tough stains. Just 7 is for everyday loads with a short label."),
+("Can I switch from Tide Pods to Just 7?", "Yes. Replace one pod with one sheet for a regular load, half a sheet for small loads."),
+("Is Just 7 like Tide Free and Gentle?", "Both are free of fragrance and dyes. Tide Free & Gentle is a liquid and pod line from Tide; Just 7 is a seven-ingredient sheet." + NA),
+("Does Just 7 clean as well as Tide?", "We don't claim that. Our side-by-side cleaning test isn't done yet, and we'll publish it when it is." + P),
+("Is Just 7 cheaper than Tide?", "It depends on which Tide product and where you buy. Compare per load: Just 7 is about $0.25 a load with subscribe and save." + P),
+("Does Tide make laundry sheets?", "Check Tide's own site for its current product lineup. We can't speak for other brands' products."),
+("Can I use Just 7 and Tide together?", "Use one detergent per load to avoid overdosing."),
+("Do Tide Pods use PVA?", "Most pods use a PVA film. Check Tide's label for its current materials."),
+# Arm & Hammer
+("Is Just 7 like Arm & Hammer Power Sheets?", "Both are laundry sheets. Check Arm & Hammer's label for its ingredients. Just 7 lists seven, film included, with no PVA." + NA),
+("Does Just 7 contain baking soda like Arm & Hammer?", "No baking soda. Just 7 uses washing soda (sodium carbonate), a related but stronger water softener."),
+("Can I switch from Arm & Hammer sheets to Just 7?", "Yes. One sheet for a regular load, in the drum before clothes."),
+# Kind
+("Is Just 7 like Kind Laundry?", "Both make laundry sheets. Compare their published ingredient list and film with our seven." + NA),
+("Can I switch from Kind Laundry sheets to Just 7?", "Yes. Use one sheet per regular load, half for small loads."),
+# Clean People
+("Is Just 7 like Clean People?", "Both make laundry sheets. Check Clean People's own label for its ingredients and film. Ours: seven ingredients, pullulan film." + NA),
+("Can I switch from Clean People to Just 7?", "Yes. Same idea: sheet in the drum first, then clothes."),
+# Dropps
+("Is Just 7 like Dropps?", "Dropps is known for laundry pods; Just 7 is a dry sheet you can tear for small loads." + NA),
+("Dropps pods vs Just 7 sheets?", "Pods are pre-measured liquid in a film; sheets are dry and tearable. Compare ingredient lists and film type on each brand's page."),
+("Can I switch from Dropps to Just 7?", "Yes. One sheet replaces one pod for a regular load."),
+# Blueland
+("Is Just 7 like Blueland?", "Blueland sells laundry tablets; Just 7 is a sheet. Compare each label and cost per load." + NA),
+("Blueland tablets vs Just 7 sheets?", "Both are dry formats with no jug. Tablets are pressed; sheets are flat and tearable. [Sheets vs tablets](/blogs/compare/laundry-sheets-vs-detergent-tablets/)."),
+("Can I switch from Blueland to Just 7?", "Yes. Use one sheet where you'd use one tablet for a regular load."),
+# Seventh Generation / All / Mrs Meyer's / Molly's
+("Is Just 7 like Seventh Generation Free & Clear?", "Both are fragrance-free choices. Seventh Generation's line is mainly liquid and pods; Just 7 is a seven-ingredient sheet." + NA),
+("Is Just 7 like All Free Clear?", "Both are fragrance-free and dye-free options. All Free Clear is mainly liquid and pods; Just 7 is a sheet with seven ingredients." + NA),
+("Is Just 7 like Mrs. Meyer's?", "Mrs. Meyer's is known for scented products. Just 7 is fragrance-free with no essential oils." + NA),
+("Is Just 7 like Molly's Suds?", "Molly's Suds is known for powder detergent. Just 7 is a sheet. Compare each label." + NA),
+("Is Just 7 like Grove Co.?", "Grove sells many cleaning products. Just 7 is a single seven-ingredient laundry sheet." + NA),
+("Is Just 7 like Ecos laundry sheets?", "Both are laundry sheets. Wirecutter noted Ecos sheets include enzymes; Just 7 doesn't. Check Ecos's label for current details." + NA),
+("Is Just 7 like Spot laundry sheets?", "Both are laundry sheets. Spot's site describes a Fresh Linen scent; Just 7 is fragrance-free." + NA),
+("Is Just 7 like Sheets Laundry Club?", "Both are laundry sheets. Compare their published label and film with ours." + NA),
+("Is Just 7 like Persil or Gain?", "Persil and Gain are big detergent brands, often scented. Just 7 is a fragrance-free, seven-ingredient sheet." + NA),
+("Is Just 7 a Kirkland or store brand?", "No. Just 7 is its own independent brand."),
+("Is Just 7 a dupe of another laundry sheet?", "No. Just 7 is our own formula, built around seven named ingredients and a pullulan film."),
+("Which laundry sheet brand has the fewest ingredients?", "We can't vouch for every brand. Just 7 lists seven, film included. Compare full lists, not front-of-box summaries."),
+("Which laundry sheets don't use PVA?", "Check each brand's film. Just 7 uses pullulan." + P + " [Why the film matters](/blogs/planet/pva-free-laundry-sheets-why-the-film-matters/)."),
+("Which laundry sheets are fragrance-free?", "Several brands offer fragrance-free versions. Just 7 only comes fragrance-free."),
+("Which laundry sheets are vegan?", "Many brands say so; check each one. Just 7 has nothing from animals." + P),
+("What did Consumer Reports find about laundry sheets?", "Consumer Reports reported that the sheets it tested scored below its liquids and pods on tough stains. Just 7 wasn't tested. We'll publish our own results." + P),
+("What did Wirecutter say about laundry sheets?", "Wirecutter reported that the sheets it tested cleaned worse than most traditional detergents. Just 7 wasn't part of that test." + P),
+("Was Just 7 included in any laundry sheet reviews?", "Not yet. We'll link independent reviews once they exist, good or bad."),
+("Where can I find honest reviews of Just 7?", "We're sending free pouches to creators for honest reviews before launch. [Creators program](/pages/creators/)."),
+("Do you pay for good reviews?", "No. Creators get a free pouch and are asked to disclose it. We want honest takes, good or bad."),
+("Why doesn't Just 7 claim to beat big brands?", "Because we haven't tested it yet. Claims come after proof."),
+("Can I compare Just 7 side by side with any brand?", "Yes. Count every ingredient, check the film and compare price per load. [Our compare page](/pages/compare/)."),
+]
+QA += [
+("Is Just 7 septic safe like Earth Breeze says its sheets are?", "Earth Breeze's product page describes its sheets as septic-safe. We haven't tested Just 7 for septic systems yet, so we don't claim it."),
+("Is Earth Breeze hypoallergenic or dermatologist tested?", "Earth Breeze says its formula is dermatologist tested. We can't speak for their testing. Just 7 doesn't claim hypoallergenic or dermatologist tested yet."),
+("Is Tru Earth hypoallergenic?", "Tru Earth says its sheets are hypoallergenic, per its own site. Just 7 doesn't use that word until we've done patch testing."),
+("Is Tru Earth vegan?", "Tru Earth says its sheets are vegan and animal cruelty free, per its own site. Just 7 has nothing from animals." + P),
+("Does Tide make a fragrance-free detergent?", "Tide sells a Free & Gentle line; check Tide's site for details. Just 7 only comes fragrance-free."),
+("Is Tide Free and Gentle vegan?", "We can't speak for Tide's ingredients. Check Tide's own statements. Just 7 has nothing from animals." + P),
+("Does Earth Breeze have fabric softener?", "We can't speak for Earth Breeze's products. Just 7 is detergent only, no softener."),
+("Where is Earth Breeze made compared to Just 7?", "Check Earth Breeze's site for theirs. We'll state Just 7's country of origin on the pouch before launch."),
+("Does Earth Breeze clean as well as Tide?", "We can't speak for either brand's results. Consumer Reports has published ratings for both formats. Just 7's own side-by-side test is still to come." + P),
+("Is Earth Breeze legit?", "Earth Breeze is a well-known laundry sheet brand. Just 7 is a separate company with its own seven-ingredient formula."),
+("What's in Earth Breeze sheets vs Just 7?", "Earth Breeze's detailed table lists 15 ingredients for its Fragrance Free sheets, including sodium lauryl sulfate, enzymes, kaolin clay and a PVA film. Just 7 lists seven. [Side by side](/blogs/compare/earth-breeze-ingredients-vs-just-7/)."),
+("Does Earth Breeze contain clay?", "Earth Breeze's published table lists kaolin clay. Just 7 has no clay or fillers."),
+("Does Earth Breeze contain sulfates?", "Earth Breeze's published table lists sodium lauryl sulfate. Just 7 has no sulfates; our cleaners are glucosides."),
+("Does Tru Earth contain sulfates?", "Tru Earth's published list includes sodium lauryl sulfate, per its own page. Just 7 has no sulfates."),
+("What do Tru Earth, Earth Breeze and Just 7 have in common?", "All three lists include water, glycerin and sodium citrate, per each brand's page. [Comparison](/blogs/compare/tru-earth-vs-earth-breeze-vs-just-7/)."),
+]

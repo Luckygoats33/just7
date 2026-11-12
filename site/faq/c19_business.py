@@ -1,0 +1,27 @@
+CAT = ("business", "Business and wholesale", "Bulk, wholesale and laundry at work.")
+P = "†"
+QA = [
+("Do you sell Just 7 wholesale?", "Bulk options and pricing are set at launch. [Tell us about your laundry](/pages/business/)."),
+("Can my shop carry Just 7?", "We'd love to hear from you. Zero-waste and refill shops can reach us on our [business page](/pages/business/)."),
+("Do you offer bulk pricing?", "Bulk options and pricing are set at launch. [Get in touch](/pages/business/)."),
+("Which businesses use laundry sheets?", "Sports teams, vacation rentals, pet groomers, gyms, spas, zero-waste shops, campers, RVs and dorms."),
+("Is Just 7 good for vacation rentals and hotels?", "Fragrance-free linens are a nice touch for guests who avoid scent. [Business page](/pages/business/)."),
+("Is Just 7 good for Airbnb hosts?", "Yes. Light to store, easy to dose, and fragrance-free for guests."),
+("Is Just 7 good for gyms, yoga studios and spas?", "Towels and mats washed without a perfume cloud. [Business page](/pages/business/)."),
+("Is Just 7 good for pet groomers, vets and daycares?", "Bedding and towels with no essential oils or fragrance. [Business page](/pages/business/)."),
+("Is Just 7 good for sports teams?", "Uniforms, towels and practice gear, by the load. Use two sheets for very dirty loads."),
+("Is Just 7 good for daycares?", "Many daycares look for fragrance-free laundry. Bulk options are set at launch. [Contact us](/pages/business/)."),
+("Is Just 7 good for salons and barbershops?", "Yes for towels and capes. Pretreat dye and product stains."),
+("Is Just 7 good for restaurants?", "Yes for aprons, towels and napkins. Pretreat grease."),
+("Is Just 7 good for campgrounds and dorms?", "Light, compact and easy to dose in tight spaces."),
+("Do you sell to schools or nonprofits?", "Yes, we'd like to talk. [Business page](/pages/business/)."),
+("Can I get samples for my business?", "We'll reach out once samples are ready. Nothing to buy, no commitment. [Business page](/pages/business/)."),
+("Do you offer private label?", "Not at launch."),
+("Do you sell larger case sizes?", "Case options are set at launch. Tell us your loads per week on our [business page](/pages/business/)."),
+("Do you work with distributors?", "We're open to it. [Contact us](/pages/contact/)."),
+("Can I resell Just 7 on Amazon?", "Not without our written OK. Shops can ask on our [business page](/pages/business/)."),
+("Is Just 7 for commercial laundry machines?", "It's made for HE and standard household washers. Ask us about commercial machines before using it at scale."),
+("Do you offer net terms or invoicing?", "Wholesale terms are set at launch."),
+("Can my brand partner with Just 7?", "Tell us your idea on our [contact page](/pages/contact/)."),
+("Can I use Just 7 in a laundromat business?", "Talk to us about bulk on our [business page](/pages/business/)."),
+]

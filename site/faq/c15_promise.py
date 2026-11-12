@@ -1,0 +1,27 @@
+CAT = ("7-promise", "The 7 Promise", "90 days to love it, or your money back. Keep the pouch.")
+P = "†"
+QA = [
+("What is the 7 Promise?", "You have 90 days from delivery to love Just 7. If you don't, email us and we'll refund that order in full. Keep the pouch. No return needed."),
+("How long do I have to ask for a refund?", "90 days from delivery."),
+("Do I need to return the pouch?", "No. Keep the pouch. No return needed."),
+("How do I get a refund?", "Email us. [Contact us](/pages/contact/) and tell us your order."),
+("Does the 7 Promise cover subscriptions?", "Yes. It covers every order, one-time or subscription, not just your first."),
+("Is there a limit on refunds?", "One refund per household."),
+("Where does my refund go?", "Back to your original payment method, usually within 5 to 10 business days."),
+("How long does a refund take?", "Usually 5 to 10 business days after we process it."),
+("Do I get a full refund?", "Yes, a full refund of that order."),
+("Can I get a refund on an opened pouch?", "Yes. You have to try it to know, so opened pouches are covered."),
+("What should I include in a refund email?", "Your name and order number. A reason helps us improve but isn't required."),
+("Do I pay return shipping?", "No. There's nothing to send back."),
+("Why one refund per household?", "It keeps the promise fair and sustainable for a small brand."),
+("Do I need a reason to get a refund?", "No. We'd love to hear why, but it's not required."),
+("Can I get a refund after 90 days?", "The 7 Promise covers 90 days from delivery. Past that, [reach out](/pages/contact/) and we'll see what we can do."),
+("When does the 90 days start?", "From delivery."),
+("Does the 7 Promise cover multiple pouches?", "It covers the full order you're asking about. One refund per household."),
+("Is the 7 Promise a money-back guarantee?", "Yes. 90 days to love it, or we refund that order in full."),
+("Can I exchange instead of a refund?", "If something arrived damaged or wrong, we'll replace it. Otherwise, the 7 Promise is a refund."),
+("Does canceling a subscription give me a refund?", "Canceling stops future deliveries. For a past order, use the 7 Promise within 90 days of delivery."),
+("Where do I read the full refund policy?", "Here: [returns and refunds](/policies/refund-policy/)."),
+("Why don't you make me send it back?", "Shipping a used pouch back wastes fuel and packaging. Keep it, share it, or finish it."),
+("Does the 7 Promise cover gifts?", "Yes. The recipient can contact us within 90 days of delivery. One refund per household."),
+]
