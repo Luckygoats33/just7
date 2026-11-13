@@ -121,17 +121,21 @@ MAIN = f'''<main id="main">
 <label class="ck" style="display:flex;gap:10px;align-items:flex-start;font-size:.95rem"><input type="checkbox" name="consent" required style="width:22px;height:22px;min-height:0;flex:none;margin-top:2px;accent-color:var(--sky-ink)"><span>I'll share an honest review or post and disclose that I got it free. Just 7 can email me about this program.</span></label>
 <p class="fine j7-consent">By applying, you agree to get emails from Just 7. Unsubscribe anytime. <a href="/policies/privacy-policy/">Privacy policy</a>.</p>
 <button class="btn" type="submit">Send my application</button>
-<p class="fine">Sending opens your email app with your application filled in. Just press send.</p>
+<p class="fine">We'll email you at the address you enter. No spam, no sharing your address.</p>
 </form>
 <script id="j7-creators">(function(){{var f=document.getElementById("creators");if(!f)return;f.__j7lead=1;
 f.addEventListener("submit",function(e){{e.preventDefault();if(!f.checkValidity()){{f.reportValidity&&f.reportValidity();return}}
-var v=function(n){{var el=f.elements[n];return el?String(el.value||"").trim():""}};var h=v("handle")||v("name");
-if(typeof window.j7OnLead==="function")try{{window.j7OnLead(v("email"),f)}}catch(err){{}}
-var body="Name: "+v("name")+"\\nEmail: "+v("email")+"\\nMain platform: "+v("platform")+"\\nHandle or URL: "+v("handle")+"\\nFollowers: "+v("followers")+"\\nNiche: "+v("niche")+"\\n\\nWhy I want to try Just 7:\\n"+v("why")+"\\n\\nI'll share an honest review or post and disclose that I got it free.\\n(Sent from just7sheets.com/pages/creators/)";
-var url="mailto:just7sheets@gmail.com?subject="+encodeURIComponent("Creator application: "+h)+"&body="+encodeURIComponent(body);
-var box=document.createElement("div");box.className="done";box.setAttribute("role","status");box.setAttribute("tabindex","-1");
-box.innerHTML='<div class="big">Thanks! Almost done.</div><p>Your email app should open with your application filled in. Press send and you\\'re in.</p><p class="fine">If your email app didn\\'t open, email <a href="mailto:just7sheets@gmail.com">just7sheets@gmail.com</a> with your handle and platform.</p>';
-f.innerHTML="";f.appendChild(box);box.focus({{preventScroll:true}});f.scrollIntoView({{block:"start"}});window.location.href=url}})}})();</script>
+var email=f.querySelector("input[type=email]");var btn=f.querySelector("[type=submit]");
+if(btn){{btn.disabled=true;btn.setAttribute("aria-busy","true")}}
+var prev=f.querySelector(".j7-lead-err");if(prev)prev.textContent="";
+var go=(typeof window.j7OnLead==="function")?window.j7OnLead(email&&email.value,f):Promise.reject();
+Promise.resolve(go).then(function(){{var box=document.createElement("div");box.className="done";box.setAttribute("role","status");box.setAttribute("tabindex","-1");
+box.innerHTML='<div class="big">Thanks. We got it.</div><p>We\\'ll email you when we pick the next batch of testers.</p>';
+f.innerHTML="";f.appendChild(box);box.focus({{preventScroll:true}});f.scrollIntoView({{block:"start"}})}}).catch(function(){{
+if(btn){{btn.disabled=false;btn.removeAttribute("aria-busy")}}
+var err=f.querySelector(".j7-lead-err");
+if(!err){{err=document.createElement("p");err.className="fine j7-lead-err";err.setAttribute("role","alert");err.style.color="#8B2E2E";if(btn&&btn.parentNode)btn.parentNode.insertBefore(err,btn.nextSibling);else f.appendChild(err)}}
+err.textContent="We couldn't send your application just now. Please try again in a moment.";}})}})}})();</script>
 </div></section>
 </main>'''
 

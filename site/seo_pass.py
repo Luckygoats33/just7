@@ -74,6 +74,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .filters button small{opacity:1!important;color:inherit!important;font-weight:600}
 .build .bar span em{text-shadow:none!important;background:rgba(14,42,63,.55);padding:0 5px;border-radius:5px}
 .ph a{color:#17557F!important}
+.j7-honey{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 </style>"""
 
 def fonts(s, is_home):
@@ -353,6 +354,7 @@ def head_fixes(s, fpath):
     # body-level duplicate Google font link (already removed in fonts()); keep head tidy
     return s
 
+FORMSUBMIT_TO = "just7sheets@gmail.com"
 KLAVIYO_COMPANY = "TGx3kB"
 KLAVIYO_LIST = "URe8a8"
 KLAVIYO_REV = "2024-10-15"
@@ -360,19 +362,34 @@ CONSENT_HTML = (
     '<p class="fine j7-consent">By joining, you agree to get emails from Just 7. Unsubscribe anytime. '
     '<a href="/policies/privacy-policy/">Privacy policy</a>.</p>'
 )
+HONEY_HTML = (
+    '<div class="j7-honey" aria-hidden="true"><label>Leave this empty '
+    '<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>'
+)
+
+# FormSubmit AJAX is the inbox log (emails just7sheets@gmail.com). Klaviyo stays as a
+# best-effort write to the existing Just 7 Waitlist (list URe8a8). Success if either works.
 LEAD_JS = (
-    '<script id="j7-lead">(function(){var C="' + KLAVIYO_COMPANY + '",L="' + KLAVIYO_LIST + '",pend=new WeakMap();'
-    'window.j7OnLead=function(email,form){'
-    'if(form&&pend.has(form))return pend.get(form);'
-    'var body=JSON.stringify({data:{type:"subscription",attributes:{'
-    'custom_source:"Just 7 site "+((location&&location.pathname)||"/"),'
-    'profile:{data:{type:"profile",attributes:{email:String(email||"").trim()}}}'
-    '},relationships:{list:{data:{type:"list",id:L}}}}});'
-    'var p=fetch("https://a.klaviyo.com/client/subscriptions/?company_id="+C,{'
-    'method:"POST",headers:{"Content-Type":"application/vnd.api+json","revision":"' + KLAVIYO_REV + '"},'
-    'body:body,keepalive:true}).then(function(r){if(!r.ok)throw r;return r});'
-    'if(form){pend.set(form,p);var clr=function(){pend.delete(form)};p.then(clr,clr)}'
-    'return p}})();</script>'
+    '<script id="j7-lead">(function(){var E="' + FORMSUBMIT_TO + '",C="' + KLAVIYO_COMPANY + '",L="' + KLAVIYO_LIST + '",pend=new WeakMap();'
+    'function fields(email,form){var data={_subject:(form&&form.matches&&form.matches("[data-creators]"))?"Just 7 creator application":"Just 7 waitlist signup",'
+    '_template:"table",_captcha:"false",_replyto:String(email||"").trim(),email:String(email||"").trim(),page:(location&&location.href)||""};'
+    'if(form){Array.prototype.forEach.call(form.elements||[],function(el){var n=el&&el.name;if(!n||el.disabled||n.charAt(0)==="_")return;'
+    'if((el.type==="checkbox"||el.type==="radio")&&!el.checked)return;var v=String(el.value||"").trim();if(!v)return;'
+    'if(data[n]&&data[n]!==v)data[n]=String(data[n]).split(", ").filter(Boolean).concat([v]).filter(function(x,i,a){return a.indexOf(x)===i}).join(", ");'
+    'else data[n]=v})}return data}'
+    'function formsubmit(data){return fetch("https://formsubmit.co/ajax/"+E,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},'
+    'body:JSON.stringify(data),keepalive:true}).then(function(r){return r.json().then(function(j){if(j&&(j.success===true||j.success==="true"))return j;throw j||r},'
+    'function(){if(!r.ok)throw r;return r})})}'
+    'function klaviyo(email){var body=JSON.stringify({data:{type:"subscription",attributes:{custom_source:"Just 7 site "+((location&&location.pathname)||"/"),'
+    'profile:{data:{type:"profile",attributes:{email:String(email||"").trim()}}}},relationships:{list:{data:{type:"list",id:L}}}}});'
+    'return fetch("https://a.klaviyo.com/client/subscriptions/?company_id="+C,{method:"POST",headers:{"Content-Type":"application/vnd.api+json","revision":"' + KLAVIYO_REV + '"},'
+    'body:body,keepalive:true}).then(function(r){if(!r.ok)throw r;return r})}'
+    'window.j7OnLead=function(email,form){if(form&&pend.has(form))return pend.get(form);'
+    'var honey=form&&form.querySelector(\'[name="_honey"]\');'
+    'if(honey&&String(honey.value||"").trim()){var ok=Promise.resolve({ok:1});if(form)pend.set(form,ok);return ok}'
+    'var data=fields(email,form);'
+    'var p=Promise.allSettled([formsubmit(data),klaviyo(data.email)]).then(function(rs){if(rs.some(function(r){return r.status==="fulfilled"}))return rs;throw rs});'
+    'if(form){pend.set(form,p);var clr=function(){pend.delete(form)};p.then(clr,clr)}return p}})();</script>'
 )
 
 # Existing in-page handlers (pretty inner pages, then minified homepage). Replaced so
@@ -464,8 +481,38 @@ def add_consent(s):
         return nform if n else form
     return re.sub(r'<form\b[^>]*data-waitlist[\s\S]*?</form>', one, s)
 
+def add_form_wiring(s):
+    """Name the email field, add FormSubmit hidden fields and a honeypot, once per waitlist form."""
+    def one(m):
+        form = m.group(0)
+        form = re.sub(
+            r'(<input\b(?=[^>]*type="email")(?![^>]*\bname=)[^>]*?)(/?>)',
+            r'\1 name="email"\2',
+            form,
+            count=1,
+            flags=re.I,
+        )
+        if 'action="https://formsubmit.co/' not in form:
+            form = re.sub(
+                r'<form\b',
+                f'<form method="POST" action="https://formsubmit.co/{FORMSUBMIT_TO}"',
+                form,
+                count=1,
+            )
+        if 'name="_honey"' in form:
+            return form
+        subject = "Just 7 creator application" if "data-creators" in form[:400] else "Just 7 waitlist signup"
+        fields = (
+            f'<input type="hidden" name="_subject" value="{subject}">'
+            '<input type="hidden" name="_template" value="table">'
+            '<input type="hidden" name="_captcha" value="false">'
+            + HONEY_HTML
+        )
+        return re.sub(r'(<form\b[^>]*>)', r'\1' + fields, form, count=1)
+    return re.sub(r'<form\b[^>]*data-waitlist[\s\S]*?</form>', one, s)
+
 def lead(s):
-    """Client-side Klaviyo subscribe on waitlist / pre-order forms. No klaviyo.js."""
+    """Waitlist / pre-order forms: FormSubmit AJAX to just7sheets@gmail.com, plus existing Klaviyo list."""
     s = re.sub(r'<script id="j7-lead">.*?</script>\n?', '', s, flags=re.S)
     s = s.replace("</head>", LEAD_JS + "\n</head>", 1)
     if OLD_WL_HANDLER in s:
@@ -473,6 +520,7 @@ def lead(s):
     if OLD_HOME_HANDLER in s:
         s = s.replace(OLD_HOME_HANDLER, NEW_HOME_HANDLER)
     s = add_consent(s)
+    s = add_form_wiring(s)
     return s
 
 def run():
@@ -500,6 +548,21 @@ def run():
             if BANNED.search(re.sub(r'(?:href|content)="[^"]*"', "", s)):
                 raise SystemExit("claim_guard: banned wording in " + fpath)
             if s != o: open(f, "w", encoding="utf-8").write(s)
+    patch_shell()
+
+def patch_shell():
+    """Keep site/faq/shell.html lead wiring in sync so faq_build.py output stays current."""
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "faq", "shell.html")
+    if not os.path.exists(p):
+        return
+    s = open(p, encoding="utf-8").read(); o = s
+    s = re.sub(r'<style id="j7-a11y">.*?</style>\n?', '', s, flags=re.S)
+    # Put a11y CSS back just before </head> (lead() also injects just before </head>)
+    s = lead(s)
+    if 'id="j7-a11y"' not in s:
+        s = s.replace("</head>", A11Y_CSS + "\n</head>", 1)
+    if s != o:
+        open(p, "w", encoding="utf-8").write(s)
 
 if __name__ == "__main__":
     run()
