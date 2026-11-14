@@ -1,36 +1,36 @@
-"""'The seven, in a minute.' on the Ingredients page: replaces the empty video slot with a
+"""(v2 tabs) 'The seven, in a minute.' on the Ingredients page: replaces the empty video slot with a
 one-minute animated explainer (intro, seven ingredients, outro). Plays when scrolled into view."""
 
 ICONS = {
-    'film': '<rect x="10" y="14" width="44" height="34" rx="6"/><path d="M18 24h28M18 32h28M18 40h18"/>',
+    'soda': '<path d="M14 50h36"/><path d="M20 50l4-26h16l4 26"/><path d="M27 24v-8h10v8"/><path d="M26 36h12"/>',
+    'fizz': '<circle cx="24" cy="42" r="8"/><circle cx="40" cy="28" r="6"/><circle cx="44" cy="46" r="4"/><circle cx="26" cy="20" r="3"/>',
+    'citrus': '<circle cx="32" cy="34" r="16"/><path d="M32 18v32M16 34h32M21 23l22 22M43 23L21 45"/>',
+    'tab': '<ellipse cx="32" cy="26" rx="20" ry="8"/><path d="M12 26v10c0 4.4 9 8 20 8s20-3.6 20-8V26"/><path d="M20 52l-4 4M44 52l4 4M32 50v6"/>',
     'grease': '<path d="M32 10c8 12 14 19 14 27a14 14 0 0 1-28 0c0-8 6-15 14-27z"/><path d="M26 40a7 7 0 0 0 7 6"/>',
     'gentle': '<path d="M32 12l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/><circle cx="48" cy="46" r="3"/><circle cx="16" cy="48" r="2"/>',
-    'soda': '<path d="M14 50h36"/><path d="M20 50l4-26h16l4 26"/><path d="M27 24v-8h10v8"/><path d="M26 36h12"/>',
-    'flex': '<path d="M12 44c10-24 30-24 40 0"/><path d="M12 44c10-10 30-10 40 0"/><circle cx="32" cy="22" r="3"/>',
-    'citrus': '<circle cx="32" cy="34" r="16"/><path d="M32 18v32M16 34h32M21 23l22 22M43 23L21 45"/>',
     'water': '<path d="M32 10c10 14 16 22 16 30a16 16 0 0 1-32 0c0-8 6-16 16-30z"/><path d="M22 44h20"/>',
 }
-SCENES = [
-    ('film', 'Pullulan film', 'The sheet itself', 'A film made from fermented starch holds everything together, then dissolves in the wash. No PVA.', 35, '#3A9BDC', '#1F6FA8'),
-    ('grease', 'Lauryl glucoside', 'The grease lifter', 'A sugar-based cleaner that pulls body oils and grease out of fabric.', 17, '#5FB389', '#2F7D57'),
-    ('gentle', 'Decyl glucoside', 'The gentle cleaner', 'Our main everyday cleaner. Mild, sugar-based, no sulfates.', 17, '#2F7D57', '#1E5A3D'),
-    ('soda', 'Washing soda', 'The grime loosener', 'Softens the water and raises the pH so everyday dirt lets go.', 10, '#5B2A5E', '#3E1C40'),
-    ('flex', 'Plant glycerin', 'The flex', 'Keeps the sheet soft and bendy in the pouch. Nothing from animals.', 10, '#9E6AA1', '#6E4571'),
-    ('citrus', 'Sodium citrate', 'The water softener', 'Grabs the minerals in hard water so the cleaners can work.', 7, '#D9A21B', '#9A720F'),
-    ('water', 'Water', 'The carrier', 'Carries it all while the sheet is made. Most of it dries off.', 4, '#6D9FC4', '#3F6E93'),
+SCENES = [  # Just 7 Laundry Tabs, working formula (w/w of a 4 g tab)
+    ('soda', 'Washing soda', 'The grease lifter', 'Sodium carbonate lifts grease and softens the water, so everyday grime lets go.', 45, '#3A9BDC', '#1F6FA8'),
+    ('fizz', 'Citric acid', 'The fizz', 'Meets the washing soda in water and fizzes, which helps break the tab apart. Helps with hard water too.', 18, '#D9A21B', '#9A720F'),
+    ('citrus', 'Sodium citrate', 'The water softener', 'Ties up the minerals in hard water so the cleaners can work.', 10, '#5B2A5E', '#3E1C40'),
+    ('tab', 'Microcrystalline cellulose', 'The binder', 'Holds the powder together as a pressed tab, then swells in water to pop it apart.', 10, '#9E6AA1', '#6E4571'),
+    ('grease', 'Lauryl glucoside', 'The main cleaner', 'A sugar-based cleaner that pulls body oils and grease out of fabric.', 7.5, '#5FB389', '#2F7D57'),
+    ('gentle', 'Decyl glucoside', 'The cold-water cleaner', 'A mild sugar-based cleaner picked for cold washes. No sulfates.', 7.5, '#2F7D57', '#1E5A3D'),
+    ('water', 'Water', 'Left over', 'Comes in with the two liquid cleaners. It is about 2% of the finished tab.', 2, '#6D9FC4', '#3F6E93'),
 ]
 SECS = 6.5
 
 
 def build():
-    slides = ['<div class="xv-s xv-intro" style="--a:#5B2A5E;--b:#3E1C40"><div class="xv-big">7</div><div><p class="xv-k">The whole label</p><h3>Seven ingredients.<br>One minute.</h3><p>What each one does, in the order it sits in the sheet.</p></div></div>']
+    slides = ['<div class="xv-s xv-intro" style="--a:#5B2A5E;--b:#3E1C40"><div class="xv-big">7</div><div><p class="xv-k">The whole label</p><h3>Seven ingredients.<br>One minute.</h3><p>What each one does, in label order: most to least.</p></div></div>']
     for i, (ic, name, role, job, pc, a, b) in enumerate(SCENES):
         slides.append(
             f'<div class="xv-s" style="--a:{a};--b:{b};--p:{pc}">'
             f'<div class="xv-ring"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[ic]}</svg></div>'
-            f'<div class="xv-t"><p class="xv-k">No. {i+1} &middot; {role}</p><h3>{name}</h3><p>{job}</p><b class="xv-pc"><span data-pc="{pc}">{pc}</span>% of a sheet</b></div>'
+            f'<div class="xv-t"><p class="xv-k">No. {i+1} &middot; {role}</p><h3>{name}</h3><p>{job}</p><b class="xv-pc"><span data-pc="{pc}">{pc}</span>% of a tab</b></div>'
             f'<div class="xv-num" aria-hidden="true">{i+1}</div></div>')
-    slides.append('<div class="xv-s xv-outro" style="--a:#22302B;--b:#111816"><div><p class="xv-k">That\'s it</p><h3>7 names. 100%.</h3><p>No fragrance, no dyes, no PVA, nothing from animals.</p></div><div class="xv-bar" aria-hidden="true">'
+    slides.append('<div class="xv-s xv-outro" style="--a:#22302B;--b:#111816"><div><p class="xv-k">That\'s it</p><h3>7 names. 100%.</h3><p>No film, no PVA, no fragrance, no dyes, nothing from animals.</p></div><div class="xv-bar" aria-hidden="true">'
                   + ''.join(f'<span style="width:{s[4]}%;background:{s[5]}"></span>' for s in SCENES) + '</div></div>')
     n = len(slides)
     dots = ''.join(f'<button type="button" class="xv-seg" data-i="{i}" aria-label="Go to part {i+1} of {n}"><i></i></button>' for i in range(n))

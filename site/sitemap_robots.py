@@ -32,9 +32,9 @@ with open(os.path.join(D, "robots.txt"), "w") as f:
     for b in bots: f.write(f"User-agent: {b}\nAllow: /\n\n")
     f.write("User-agent: *\nAllow: /\nDisallow: /404.html\n\nSitemap: https://just7sheets.com/sitemap.xml\n")
 def sec(prefix): return [p for p in pages if p[0].startswith(prefix)]
-L = ["# Just 7 Laundry Sheets (Just Seven)", "",
-     "> Fragrance-free laundry detergent sheets with seven ingredients, every one named: pullulan film, lauryl glucoside, decyl glucoside, sodium carbonate, plant glycerin, sodium citrate and water. Nothing from animals. 7% of every sale goes to animal sanctuaries and nonprofits. Pre-order now. Coming soon.", "",
-     "Prices: $19 one-time, $15 each with subscribe and save, $14 each on 3 or more. 30 sheets, up to 60 loads per pouch. 90-day keep-the-pouch promise.", "",
+L = ["# Just 7 Laundry Tabs (Just Seven)", "",
+     "> Fragrance-free pressed laundry detergent tabs with seven ingredients, every one named: sodium carbonate (washing soda), citric acid, sodium citrate, microcrystalline cellulose, lauryl glucoside, decyl glucoside and water. No film, no PVA, no plastic jug. Nothing from animals. 7% of every sale goes to animal sanctuaries and nonprofits. Pre-order now. Coming soon.", "",
+     "Prices: $19 one-time, $15 each with subscribe and save, $14 each on 3 or more. 60 tabs (4 g each), up to 60 loads per pouch: one tab per regular load, two for large. 90-day keep-the-pouch promise.", "",
      "## Shop", ""]
 L += [f"- [{t}]({SITE}{u}): {d}" for u, t, d, _ in pages if u in ("/", "/products/just-7/", "/collections/all/", "/cart/")]
 L += ["", "## About the product", ""]

@@ -123,7 +123,7 @@ BLOG_MAP = {
     "essential-oils-laundry-detergent-pets": "/blogs/pets/why-we-never-use-essential-oils-not-even-lavender/",
     "are-laundry-sheets-worth-it": "/blogs/compare/cost-per-load-how-to-compare-any-detergent/",
     "tru-earth-vs-earth-breeze": "/blogs/compare/tru-earth-vs-earth-breeze-vs-just-7/",
-    "pva-free-laundry-sheets": "/blogs/planet/pva-free-laundry-sheets-why-the-film-matters/",
+    "pva-free-laundry-sheets": "/blogs/planet/are-laundry-sheets-plastic/",
     "laundry-detergent-for-homes-with-pets": "/blogs/pets/laundry-detergent-for-homes-with-pets/",
 }
 def content_fixes(s):
@@ -133,7 +133,7 @@ def content_fixes(s):
     s = re.sub(r'<h2 id="other-options">Other options</h2>\n<p>\[Add a fair one-line summary[^<]*\]</p>\n', '', s)
     s = re.sub(r'<li><a href="#other-options">Other options</a></li>', '', s)
     s = s.replace("<p>[Add each brand&#x27;s price per load from its own site, with read date.]</p>",
-        "<p>Just 7 works out to about $0.25 a load with subscribe and save: $15 for 30 sheets, up to 60 loads. Prices change, so check each brand&#x27;s own site and compare per load, not per box (<a href=\"/blogs/compare/cost-per-load-how-to-compare-any-detergent/\">here&#x27;s how</a>).</p>")
+        "<p>Just 7 works out to about $0.25 a load with subscribe and save: $15 for 60 tabs, up to 60 loads. Prices change, so check each brand&#x27;s own site and compare per load, not per box (<a href=\"/blogs/compare/cost-per-load-how-to-compare-any-detergent/\">here&#x27;s how</a>).</p>")
     s = s.replace("nothing from animals. Subscribe and save is coming. 7% of every sale goes to animal sanctuaries.",
                   "nothing from animals. $19, or $15 with subscribe and save. Pre-order now. Coming soon.")
     if 'id="waitlist"' not in s:
@@ -237,9 +237,9 @@ def ld(obj): return '<script type="application/ld+json">' + json.dumps(obj, ensu
 ORG = {"@context": "https://schema.org", "@type": "Organization", "@id": SITE + "/#org", "name": "Just Seven", "alternateName": "Just 7",
        "url": SITE + "/", "logo": SITE + "/icon-512.png", "email": "just7sheets@gmail.com",
        "slogan": "Seven ingredients. Zero compromise.",
-       "description": "Laundry detergent sheets with seven ingredients, every one named. Fragrance-free, nothing from animals. 7% of every sale goes to animal sanctuaries.",
+       "description": "Pressed laundry detergent tabs with seven ingredients, every one named. No film, no PVA. Fragrance-free, nothing from animals. 7% of every sale goes to animal sanctuaries.",
        "sameAs": ["https://www.facebook.com/just7sheets", "https://www.instagram.com/just7sheets/", "https://x.com/just7sheets", "https://www.linkedin.com/company/just7sheets/", "https://www.youtube.com/@just7sheets", "https://www.tiktok.com/@just7sheets"]}
-WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", "name": "Just 7 Laundry Sheets", "url": SITE + "/", "publisher": {"@id": SITE + "/#org"}, "inLanguage": "en-US"}
+WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", "name": "Just 7 Laundry Tabs", "url": SITE + "/", "publisher": {"@id": SITE + "/#org"}, "inLanguage": "en-US"}
 
 def offer(price, name, extra=None):
     o = {"@type": "Offer", "name": name, "price": f"{price}.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder",
@@ -248,9 +248,9 @@ def offer(price, name, extra=None):
     if extra: o.update(extra)
     return o
 PRODUCT = {"@context": "https://schema.org", "@type": "Product", "@id": SITE + "/products/just-7/#product",
-    "name": "Just 7 Laundry Detergent Sheets", "sku": "JUST7-30", "brand": {"@type": "Brand", "name": "Just Seven"},
-    "description": "Fragrance-free laundry detergent sheets with seven ingredients: pullulan film, lauryl glucoside, decyl glucoside, sodium carbonate, plant glycerin, sodium citrate and water. 30 sheets, up to 60 loads. Pre-order now. Coming soon.",
-    "category": "Laundry detergent", "image": [SITE + f"/assets/just-7-product-{i}.jpg" for i in range(1, 6)], "url": SITE + "/products/just-7/",
+    "name": "Just 7 Laundry Tabs", "sku": "JUST7-TABS-60", "brand": {"@type": "Brand", "name": "Just Seven"},
+    "description": "Fragrance-free pressed laundry detergent tabs with seven ingredients: sodium carbonate (washing soda), citric acid, sodium citrate, microcrystalline cellulose, lauryl glucoside, decyl glucoside and water. No film, no PVA. 60 tabs, up to 60 loads, one tab per regular load. Pre-order now. Coming soon.",
+    "category": "Laundry detergent", "image": [SITE + f"/assets/just-7-product-{i}.jpg" for i in (1, 8, 6, 2, 7, 3, 4, 5)], "url": SITE + "/products/just-7/",
     "offers": [offer(19, "One-time purchase"),
                offer(15, "Subscribe and save", {"priceSpecification": {"@type": "UnitPriceSpecification", "price": "15.00", "priceCurrency": "USD", "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "C62"}}}),
                offer(14, "Subscribe, 3 or more pouches", {"eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 3, "unitCode": "C62"}})]}
@@ -368,7 +368,7 @@ def head_fixes(s, fpath):
     s = re.sub(r'<style id="j7-a11y">.*?</style>\n?', '', s, flags=re.S)
     s = s.replace("</head>", A11Y_CSS + "\n</head>", 1)
     if fpath == "/index.html":
-        s = s.replace("<title>Just 7 Laundry Sheets</title>", "<title>Just 7 Laundry Sheets: Seven Ingredients, Fragrance-Free</title>")
+        s = s.replace("<title>Just 7 Laundry Tabs</title>", "<title>Just 7 Laundry Tabs: Seven Ingredients, Fragrance-Free</title>")
     # body-level duplicate Google font link (already removed in fonts()); keep head tidy
     return s
 

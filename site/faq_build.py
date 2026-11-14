@@ -122,21 +122,21 @@ def run():
     json.dump({"v": 1, "n": len(items), "cats": [[s, t] for s, t, _ in cc], "items": items}, open(os.path.join(D, "assets", "faq.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     total = f"{len(items):,}"
     # hub
-    top_ids = ["what-is-just-7", "what-are-the-7-ingredients-in-just-7", "how-many-sheets-per-load", "is-just-7-like-earth-breeze", "laundry-sheets-vs-tide-pods", "does-just-7-dissolve-in-cold-water", "is-just-7-vegan", "is-just-7-pet-friendly", "how-much-does-just-7-cost", "what-is-the-7-promise", "when-do-orders-ship", "is-just-7-pva-free"]
+    top_ids = ["what-is-just-7", "what-are-the-7-ingredients-in-just-7", "how-many-tabs-per-load", "is-just-7-like-earth-breeze", "laundry-sheets-vs-tide-pods", "does-just-7-dissolve-in-cold-water", "is-just-7-vegan", "is-just-7-pet-friendly", "how-much-does-just-7-cost", "what-is-the-7-promise", "when-do-orders-ship", "is-just-7-pva-free"]
     idx = {i["id"]: i for i in items}; top = [idx[t] for t in top_ids]
     cards = "".join(f'<li><a href="/pages/faq/{s}/"><b>{html.escape(t)}</b><span>{n} answers · {html.escape(meta[s][2])}</span></a></li>' for s, t, n in cc)
     hub = (f'<section class="section" style="padding-top:24px"><div class="wrap stack" style="gap:22px">'
            f'<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">FAQ</span></nav>'
            f'<div class="stack"><p class="eyebrow">{total} questions, answered</p><h1>Ask us anything.</h1>'
-           f'<p class="lead">Every answer about Just 7 laundry sheets in one place: the seven ingredients, dosing, stains, pets, vegan, pricing, shipping and how we compare. {PRE}</p></div>'
+           f'<p class="lead">Every answer about Just 7 Laundry Tabs in one place: the seven ingredients, dosing, stains, pets, vegan, pricing, shipping and how we compare. {PRE}</p></div>'
            + SEARCH.format(id="faq-all", label=f"Search all {total} answers", ph=f"Search {total} answers: cold water, Earth Breeze, cats…") +
            f'<div id="faq-results" class="fres" aria-live="polite" hidden></div>'
            f'<div id="faq-cats" class="stack" style="gap:22px"><h2>Browse by topic</h2><ul class="fcards">{cards}</ul>'
            f'<h2>Most asked</h2><div class="stack" style="gap:8px">{"".join(qa_html(i) for i in top)}</div>'
            f'<div class="cta"><b style="font-family:var(--f-display)">Still stuck?</b><p class="mute" style="font-size:.92rem">Ask Just answers only from these {total} answers and never guesses. Or <a href="/pages/contact/">reach a person</a>.</p><button class="btn sm" type="button" data-ask="">Ask Just</button></div></div>'
            f'</div></section>' + HUBJS)
-    hub_title = f"Just 7 FAQ: {total} Answers About Our Laundry Sheets"
-    hub_desc = f"{total} answers about Just 7 laundry sheets: the 7 ingredients, dosing, cold water, stains, pets, vegan, PVA-free film, pricing, shipping, the 7 Promise and comparisons."
+    hub_title = f"Just 7 FAQ: {total} Answers About Our Laundry Tabs"
+    hub_desc = f"{total} answers about Just 7 Laundry Tabs: the 7 ingredients, dosing, cold water, stains, pets, vegan, no film or PVA, pricing, shipping, the 7 Promise and comparisons."
     out = page(shell, hub_title, hub_desc, "/pages/faq/", hub, [faq_ld(top), crumbs([("Home", "/"), ("FAQ", "/pages/faq/")])])
     open(os.path.join(D, "pages", "faq", "index.html"), "w", encoding="utf-8").write(out)
     for s, t, n in cc:
@@ -150,8 +150,8 @@ def run():
                 f'<p id="faq-none" hidden class="lead">Nothing here matches. <a href="/pages/faq/">Search all {total} answers</a> or <button class="btn sm" type="button" data-ask="">Ask Just</button></p>'
                 f'<p class="mute">Didn\'t find it? <a href="/pages/faq/">Search all {total} answers</a> or <a href="/pages/contact/">contact us</a>.</p></div></div>'
                 f'</div></section>')
-        title = f"{t} FAQ: {n} Answers | Just 7 Laundry Sheets"
-        desc = f"{n} answers on {t.lower()} for Just 7 laundry sheets. {desc0}"[:300]
+        title = f"{t} FAQ: {n} Answers | Just 7 Laundry Tabs"
+        desc = f"{n} answers on {t.lower()} for Just 7 Laundry Tabs. {desc0}"[:300]
         path = f"/pages/faq/{s}/"
         os.makedirs(os.path.join(D, "pages", "faq", s), exist_ok=True)
         out = page(shell, title, desc, path, body, [faq_ld(its), crumbs([("Home", "/"), ("FAQ", "/pages/faq/"), (t, path)])])

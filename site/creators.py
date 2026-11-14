@@ -61,7 +61,7 @@ def tile(href, bg, img, alt, icon, h, p):
             f'<span class="tic">{icon}</span></span><h3>{h}</h3><p>{p}</p></a>')
 TILES = ('<div class="tiles">'
          + tile("/pages/ingredients/", "#1F6FA8", "tile-ingredients.webp", "The Just 7 label listing all seven ingredients", IC_ING, "Meet all 7", "Every ingredient, explained.")
-         + tile("/pages/learn/", "#3F7A4C", "tile-learn.webp", "How to dose: half, one or two sheets", IC_LEARN, "Learn", "144 articles on labels, pets and stains.")
+         + tile("/pages/learn/", "#3F7A4C", "tile-learn.webp", "How to dose: one tab for a regular load, two for a big one", IC_LEARN, "Learn", "144 articles on labels, pets and stains.")
          + tile("/pages/about/#mission", "#5B2A5E", "tile-mission.webp", "7% of every sale goes to animal sanctuaries", IC_PAW, "Our mission", "7% of every sale to the animals.")
          + '</div>')
 TILES_RE = re.compile(r'<div class="tiles"><a class="tile[^"]*" href="/pages/ingredients/".*?</a></div>', re.S)
@@ -75,7 +75,7 @@ def waitlist_tiles():
 
 # ---------- /pages/creators/ ----------
 TITLE = "Try Just 7 Free: Creator and Reviewer Program"
-DESC = "Creators, reviewers and everyday laundry people: apply for a free pouch of Just 7 laundry sheets before launch. All we ask is an honest review or post."
+DESC = "Creators, reviewers and everyday laundry people: apply for a free pouch of Just 7 Laundry Tabs before launch. All we ask is an honest review or post."
 URL = SITE + "/pages/creators/"
 PLATFORMS = ["TikTok", "Instagram", "YouTube", "Facebook", "Pinterest", "Bluesky", "X", "Blog", "Other"]
 FOLLOWERS = ["Under 1,000", "1,000 to 10,000", "10,000 to 50,000", "50,000 to 250,000", "250,000+", "I don't post, I just do laundry"]
@@ -102,7 +102,7 @@ MAIN = f'''<main id="main">
 </div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><div class="grid">
 <div class="card"><h2 style="font-size:1.35rem">Who it's for</h2><p>Creators of any size: pets, home, eco, cleaning, parenting and laundry niches. Reviewers and unboxers. And everyday folks who just do a lot of laundry.</p></div>
-<div class="card"><h2 style="font-size:1.35rem">What you get</h2><p>A free pouch of Just 7: 30 sheets, up to 60 loads. Pouches go out as our first batch is ready. Just 7 is coming soon. It's yours to keep.</p></div>
+<div class="card"><h2 style="font-size:1.35rem">What you get</h2><p>A free pouch of Just 7 Laundry Tabs: 60 tabs, up to 60 loads. Pouches go out as our first batch is ready. Just 7 is coming soon. It's yours to keep.</p></div>
 <div class="card"><h2 style="font-size:1.35rem">What we ask</h2><p>Try it for a few loads. Share an honest review or post and tag <b>@just7sheets</b>. Please say you got it free, with #gifted or #ad.</p></div>
 </div></div></section>
 <section class="section" id="apply" style="padding-top:0;scroll-margin-top:96px"><div class="wrap" style="display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:start">

@@ -2,7 +2,7 @@ CAT = ("sensitive", "Fragrance-free and sensitive skin", "No fragrance, no dyes,
 P = "†"
 QA = [
 ("Is Just 7 good for sensitive skin?", "We can't promise how anyone's skin will react, but you can check every ingredient: seven, no fragrance, no dyes, no essential oils. If you have a skin condition, ask your doctor. [Label guide for sensitive skin](/blogs/home/laundry-detergent-for-sensitive-skin-a-label-reading-guide/)."),
-("Is Just 7 hypoallergenic?", "We don't use that word yet. There's no official standard for it, and we'd want patch testing first. [Why we don't say it yet](/blogs/vegan/what-does-hypoallergenic-mean-and-why-we-dont-say-it-yet/)." + P),
+("Is Just 7 hypoallergenic?", "We don't use that word yet. There's no official standard for it, and we'd want patch testing first. [Why we don't say it yet](/blogs/vegan/what-does-hypoallergenic-mean-and-why-we-dont-say-it-yet/).†"),
 ("Is Just 7 dermatologist tested?", "Not yet, so we don't say it. [What dermatologist tested means](/blogs/vegan/what-does-dermatologist-tested-mean/)."),
 ("Is Just 7 good for eczema?", "We make no medical claims. It's fragrance-free and dye-free with seven named ingredients, which makes it easy to check with your doctor."),
 ("Is Just 7 good for psoriasis?", "We can't make medical claims. Share our seven-ingredient list with your dermatologist to decide."),
@@ -10,7 +10,7 @@ QA = [
 ("What's the difference between fragrance-free and unscented?", "Unscented products can contain a masking fragrance to cover chemical smells. Fragrance-free means none at all, which is what Just 7 is. [Full explainer](/blogs/home/fragrance-free-vs-unscented-whats-the-difference/)."),
 ("Why choose fragrance-free laundry detergent?", "Scent can linger on fabric and bedding. Fragrance-free leaves nothing behind but clean."),
 ("Will my clothes smell clean without fragrance?", "Clean laundry smells like nothing. Without perfume, any smell left means the dirt is still there, so you know when to rewash."),
-("Can I add my own scent to Just 7 laundry?", "You can, but it won't be fragrance-free anymore. If you want scent, add it separately rather than mixing anything into the sheets."),
+("Can I add my own scent to Just 7 laundry?", "You can, but it won't be fragrance-free anymore. If you want scent, add it separately rather than mixing anything into the tabs."),
 ("Does Just 7 leave a scent on clothes?", "No. Nothing is added to leave a scent."),
 ("Will Just 7 remove fragrance from previous detergents?", "Repeated washes help. Heavy fragrance can take a few cycles to fade, and an extra rinse can help."),
 ("How do I switch to fragrance-free laundry?", "Start with your bedding and towels, use the right dose, and add an extra rinse the first few washes to clear leftover scent."),
@@ -20,7 +20,7 @@ QA = [
 ("Can I use Just 7 on baby clothes?", "Many parents look for short, fragrance-free labels for baby laundry, and Just 7 is one. Check with your pediatrician if your baby has sensitive skin. [Washing baby clothes](/blogs/home/how-to-wash-baby-clothes-what-to-look-for-on-a-detergent-label/)."),
 ("Is Just 7 good for newborn laundry?", "Wash new baby clothes before first wear with the regular dose and an extra rinse. Ask your pediatrician about any skin concerns."),
 ("Do I need a separate baby detergent?", "Not necessarily. Many parents choose one fragrance-free detergent for the whole home. Check with your pediatrician."),
-("Is Just 7 OK for kids' school uniforms?", "Yes. Use one sheet for regular loads and pretreat grass and food stains first."),
+("Is Just 7 OK for kids' school uniforms?", "Yes. Use one tab for regular loads and pretreat grass and food stains first."),
 ("Is Just 7 good for sensitive skin and pets in the same home?", "It's fragrance-free with no essential oils, which makes it a simple pick for both. Keep the pouch out of reach of kids and pets."),
 ("Does Just 7 have dyes that can irritate skin?", "Just 7 has no dyes at all."),
 ("Can detergent residue cause itching?", "Leftover detergent from overdosing can be an issue for some people. Use the right dose, don't overload, and add an extra rinse if you're unsure."),
@@ -28,7 +28,7 @@ QA = [
 ("Should I do an extra rinse for sensitive skin?", "An extra rinse is an easy way to remove any leftover detergent. It's worth trying if you're sensitive."),
 ("I'm sensitive to one of the ingredients. What should I do?", "Skip it, and please tell us which one. That's the point of a seven-name list: you can tell in ten seconds."),
 ("Can I patch test Just 7?", "You can wash a single item first, like a pillowcase, and see how it goes before switching fully."),
-("Is Just 7 OK for underwear?", "Yes. A half sheet works for a small load of underwear and delicates."),
+("Is Just 7 OK for underwear?", "Yes. One tab works for a small load of underwear and delicates."),
 ("Is Just 7 OK for face towels and pillowcases?", "Yes. These touch your face most, which is why many people choose fragrance-free for them."),
 ("Is Just 7 OK for cloth face masks?", "Yes. Wash them like other everyday cotton items."),
 ("Will Just 7 irritate my skin?", "We can't promise how your skin will react. You can check all seven ingredients and talk to your doctor."),
@@ -44,7 +44,5 @@ QA = [
 ("Can people with chemical sensitivity use Just 7?", "We can't make medical claims. It's fragrance-free with seven named ingredients for you to review."),
 ("Can I use Just 7 for breastfeeding or nursing clothes?", "Yes. Wash nursing bras and burp cloths like other everyday laundry."),
 ("Will fragrance-free laundry still smell fresh after line drying?", "Line-dried laundry picks up whatever is in the air but no perfume from us. Many people love that plain clean smell."),
-]
-QA += [
 ("Can I wash bedding with Just 7 after getting a tattoo?", "Fresh, clean bedding is part of most aftercare advice. We make no medical claims, so follow your artist's instructions."),
 ]
