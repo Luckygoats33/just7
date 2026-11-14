@@ -6,7 +6,7 @@ KEEP = [  # non-product "sheet" senses: bedding, dryer sheets, documents
     r"bed ?sheets?", r"fitted sheets?", r"flat sheets?", r"dryer sheets?", r"cheat sheets?", r"sheet sets?", r"data sheets?",
     r"crib sheets?", r"bamboo sheets?", r"color-catcher sheets?", r"spreadsheets?", r"stylesheets?", r"baking sheets?", r"cookie sheets?",
     r"(?:cotton|linen|silk|flannel|sateen|percale|jersey|satin|microfiber|hotel|clean|dirty|fresh|kids'|guest) sheets", r"sheet masks?",
-    r"(?:wash|washing|change|changing|strip|stripping|launder|laundering|drying|folding|iron|ironing) (?:your |the |bed |)sheets(?! (?:in|into|per|for each|for a|pouch))", r"lint on sheets", r"[Bb]ig sheets can tangle", r"sheets with clothes", r"wash sheets alone",
+    r"(?:wash|washing|change|changing|strip|stripping|launder|laundering|drying|folding|iron|ironing) (?:your |the |bed |)sheets(?! (?:in|into|per|for each|for a|pouch))", r"lint on sheets", r"planned a (?:laundry )?sheet", r"from sheets to tabs", r"the sheet you showed", r"pre-ordered the sheets", r"Sheets can be torn", r"sheets can be torn", r"tabs and sheets", r"[Tt]abs vs (?:laundry )?sheets", r"than sheets", r"Tabs, sheets", r"[Bb]ig sheets can tangle", r"sheets with clothes", r"wash sheets alone",
     r"(?:your|my|our bed|new|their bed|the bed) sheets(?! (?:in|per))", r"sheets and (?:towels|pillowcases|duvet)", r"(?:towels|pillowcases),? (?:and )?sheets",
     r"sheets, towels", r"how often should you wash your sheets", r"blood out of sheets", r"Sheets? weekly", r"Thursday: sheets", r"the sheets on (?:the|your) bed",
 ]

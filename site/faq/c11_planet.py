@@ -1,4 +1,4 @@
-CAT = ("packaging-planet", "Packaging, film and planet", "The pullulan film, the pouch, PVA, and what we can and can't claim yet.")
+CAT = ("packaging-planet", "Packaging and planet", "No film, the pouch, PVA, and what we can and can't claim yet.")
 P = "†"
 QA = [
 ("Is Just 7 plastic-free?", "That's the design: no film, no PVA and no plastic jug, just pressed tabs in a thin pouch. We'll call it plastic-free once the pouch material is confirmed in writing.†"),

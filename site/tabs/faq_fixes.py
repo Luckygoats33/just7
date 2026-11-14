@@ -3,6 +3,8 @@
 P = "†"
 LIGHT = {"c18"}
 CATS = {
+    "c05": ("how-to-use", "How to use", "Dosing, where the tab goes, cycles and handy tricks."),
+    "c11": ("packaging-planet", "Packaging and planet", "No film, the pouch, PVA, and what we can and can't claim yet."),
     "c17": ("formats", "Tabs vs sheets, pods, liquid and powder", "How laundry tabs stack up against other formats, honestly."),
     "c22": ("laundry-tabs", "Laundry tab questions", "The questions people ask most about laundry tabs, answered for Just 7."),
 }
@@ -68,6 +70,7 @@ FIX = {
  "c05#35": ("How many tabs should I pack for a trip?", "One tab per sink wash or machine load. A few tabs in a small dry container cover most trips."),
  "c05#40": ("Can I pretreat stains with a tab?", "Yes. Dissolve a tab in a spoonful of warm water, work it into the wet stain, let it sit a few minutes, then wash." + P),
  "c05#41": ("How do I make a pretreat paste from a tab?", "Crush a tab into a spoonful of warm water, let the fizz settle, and work the paste into the stain with your fingers."),
+ "c05#44": ("Why are my tabs sticking together?", "Humidity. Keep the pouch sealed and away from steam, and handle tabs with dry hands."),
  "c05#45": ("Can I touch the tabs with wet hands?", "Try not to. Water starts the fizz. Grab one with dry hands and reseal the pouch."),
  "c05#61": ("How do I switch from pods to tabs?", "One pod usually becomes one tab for a regular load. Use two for large or messy loads."),
  "c05#67": ("Are laundry tabs easier for people with limited grip?", "Many people find dropping in a small tab easier than lifting a jug or measuring liquid."),

@@ -122,7 +122,7 @@ def run():
     json.dump({"v": 1, "n": len(items), "cats": [[s, t] for s, t, _ in cc], "items": items}, open(os.path.join(D, "assets", "faq.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     total = f"{len(items):,}"
     # hub
-    top_ids = ["what-is-just-7", "what-are-the-7-ingredients-in-just-7", "how-many-tabs-per-load", "is-just-7-like-earth-breeze", "laundry-sheets-vs-tide-pods", "does-just-7-dissolve-in-cold-water", "is-just-7-vegan", "is-just-7-pet-friendly", "how-much-does-just-7-cost", "what-is-the-7-promise", "when-do-orders-ship", "is-just-7-pva-free"]
+    top_ids = ["what-is-just-7", "what-are-the-7-ingredients-in-just-7", "how-many-tabs-per-load", "is-just-7-like-earth-breeze", "why-did-just-7-switch-from-sheets-to-tabs", "does-just-7-dissolve-in-cold-water", "is-just-7-vegan", "is-just-7-pet-friendly", "how-much-does-just-7-cost", "what-is-the-7-promise", "when-do-orders-ship", "is-just-7-pva-free", "why-does-the-tab-fizz"]
     idx = {i["id"]: i for i in items}; top = [idx[t] for t in top_ids]
     cards = "".join(f'<li><a href="/pages/faq/{s}/"><b>{html.escape(t)}</b><span>{n} answers · {html.escape(meta[s][2])}</span></a></li>' for s, t, n in cc)
     hub = (f'<section class="section" style="padding-top:24px"><div class="wrap stack" style="gap:22px">'

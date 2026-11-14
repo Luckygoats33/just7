@@ -4,7 +4,7 @@ QA = [
 ("Laundry tabs vs pods: which is better?", "Both are pre-measured. Pods are liquid detergent in a film, usually PVA. Just 7 tabs are dry and pressed, with no film at all. Pick on ingredients and how you wash."),
 ("Laundry tabs vs liquid detergent?", "Liquid is easy to pour on a stain. Tabs skip the jug, the water and the measuring cap. Just 7 aims for a short label, no jug and no PVA."),
 ("Laundry tabs vs powder?", "Powder can be cheap and strong but messy to measure and can clump in cold water. Tabs are pre-measured powder, pressed, with a light fizz to break up. [Sheets vs powder](/blogs/compare/laundry-sheets-vs-laundry-powder-which-is-better/)."),
-("Laundry tabs vs laundry sheets?", "Both are dry and pre-measured. Most sheets are held together by a film, often PVA. A pressed tab needs no film. That's why we chose a tab. [Tabs vs tabs](/blogs/compare/laundry-tabs-vs-laundry-sheets/)."),
+("Laundry tabs vs laundry sheets?", "Both are dry and pre-measured. Most sheets are held together by a film, often PVA. A pressed tab needs no film. That's why we chose a tab. [Tabs vs sheets](/blogs/compare/laundry-tabs-vs-laundry-sheets/)."),
 ("Laundry strips vs laundry sheets: is there a difference?", "Mostly just the name. Just 7 is neither: it's a pressed tab. [Strips vs sheets](/blogs/compare/laundry-strips-vs-laundry-sheets-is-there-a-difference/)."),
 ("Laundry tabs vs soap nuts?", "Soap nuts are a fruit shell with natural saponins; tabs are a measured detergent. [Sheets vs soap nuts](/blogs/compare/laundry-sheets-vs-soap-nuts/)."),
 ("Do laundry balls and eggs work?", "Independent testing has generally found little cleaning benefit over water alone. [Laundry balls and eggs](/blogs/compare/laundry-balls-and-eggs-do-they-work/)."),

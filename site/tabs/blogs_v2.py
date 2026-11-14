@@ -36,8 +36,6 @@ def convert_html(s, fn):
         if "&" in t: u = H.escape(u, quote=False).replace("'", "&#x27;")
         return u
     out, pos = [], 0
-    for m in re.finditer(r"(<style\b.*?</style>|<script\b(?![^>]*ld\+json).*?</script>|<script[^>]*ld\+json[^>]*>)(.*?)(?=</script>)|(<[^>]+>)", s, re.S):
-        pass
     # tokenise: tags, style/script blocks, ld+json bodies, text
     tok = re.compile(r"<style\b.*?</style>|<script\b[^>]*ld\+json[^>]*>.*?</script>|<script\b.*?</script>|<!--.*?-->|<[^>]+>", re.S)
     for m in tok.finditer(s):
@@ -80,13 +78,36 @@ def run():
             p = os.path.join(dp, f); rel = os.path.relpath(p, DOCS).replace(os.sep, "/")
             if os.path.isfile(os.path.join(dp, ".stub")): continue
             s0 = open(p, encoding="utf-8").read(); s = relink(s0)
-            if rel.startswith("blogs/") and rel != "blogs/index.html" or rel.startswith(("pages/", "collections/")) and not any(rel.startswith(x) for x in SKIP):
-                light = any(rel.startswith(x) for x in LIGHT_PAGES) and not any(rel.startswith(x) for x in FULL_ANYWAY)
-                if not rel.endswith("/index.html") or rel.count("/") >= 2 or rel.startswith(("pages/", "collections/")):
-                    s = convert_html(s, tabify_product if light else tabify)
+            if rel.startswith(("blogs/", "pages/", "collections/")) and not any(rel.startswith(x) for x in SKIP):
+                post = rel.startswith("blogs/") and rel.count("/") == 3
+                light = (not post) or any(rel.startswith(x) for x in LIGHT_PAGES) and not any(rel.startswith(x) for x in FULL_ANYWAY)
+                s = convert_html(s, tabify_product if light else tabify)
             # self-references of renamed posts
             if s != s0: open(p, "w", encoding="utf-8").write(s); changed += 1
     print("moved", moved, "changed", changed)
+    sync_cards()
+
+def h1_of(url):
+    p = os.path.join(DOCS, url.strip("/"), "index.html")
+    if not os.path.isfile(p): return None
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", open(p, encoding="utf-8").read(), re.S)
+    return m.group(1).strip() if m else None
+
+def sync_cards():
+    """Post cards everywhere show the target post's own H1, so renamed titles follow."""
+    cache, n = {}, 0
+    card = re.compile(r'(<a class="post" href="(/blogs/[^"]+)"[^>]*>.*?<h3>)(.*?)(</h3>)', re.S)
+    for dp, dn, fns in os.walk(DOCS):
+        for f in fns:
+            if not f.endswith(".html"): continue
+            p = os.path.join(dp, f); s0 = open(p, encoding="utf-8").read()
+            def rep(m):
+                u = m.group(2)
+                if u not in cache: cache[u] = h1_of(u)
+                return m.group(1) + (cache[u] or m.group(3)) + m.group(4)
+            s = card.sub(rep, s0)
+            if s != s0: open(p, "w", encoding="utf-8").write(s); n += 1
+    print("cards synced in", n, "files")
 
 if __name__ == "__main__":
     run()

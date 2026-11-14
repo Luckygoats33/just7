@@ -1,4 +1,4 @@
-CAT = ("how-to-use", "How to use", "Dosing, where the sheet goes, cycles and handy tricks.")
+CAT = ("how-to-use", "How to use", "Dosing, where the tab goes, cycles and handy tricks.")
 P = "†"
 QA = [
 ("How many tabs per load?", "One tab for a small or regular load, two for a large or extra-dirty load.† [Dosing guide](/blogs/how-to/how-many-laundry-tabs-per-load/)."),
@@ -45,7 +45,7 @@ QA = [
 ("How do I make a pretreat paste from a tab?", "Crush a tab into a spoonful of warm water, let the fizz settle, and work the paste into the stain with your fingers."),
 ("Can I soak clothes with Just 7?", "Yes. Dissolve one tab in a basin of warm water and soak for up to a few hours, then wash."),
 ("How should I store laundry tabs?", "Keep the pouch sealed and dry, away from steam and humidity, and out of reach of kids and pets. [Storage tips](/blogs/how-to/how-to-store-laundry-tabs-so-they-last/)."),
-("Why are my sheets sticking together?", "Humidity. Keep the pouch sealed and away from steam. Separate them gently with dry hands."),
+("Why are my tabs sticking together?", "Humidity. Keep the pouch sealed and away from steam, and handle tabs with dry hands."),
 ("Can I touch the tabs with wet hands?", "Try not to. Water starts the fizz. Grab one with dry hands and reseal the pouch."),
 ("Do laundry tabs expire?", "We'll print a best-by guide on the pouch once our manufacturer confirms it. Stored sealed and dry, tabs keep well."),
 ("How long does a pouch last?", "Up to 60 loads. At five loads a week, that's about three months.†"),

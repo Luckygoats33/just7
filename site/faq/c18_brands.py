@@ -41,7 +41,7 @@ QA = [
 ("Dropps pods vs Just 7 tabs?", "Pods are pre-measured liquid in a film; Just 7 tabs are dry, pre-measured and unwrapped. Compare ingredient lists and film type on each brand's page."),
 ("Can I switch from Dropps to Just 7?", "Yes. One tab replaces one pod for a regular load."),
 ("Is Just 7 like Blueland?", "Both are dry, pressed laundry tablets with no jug. Compare each label and cost per load. Just 7 isn't affiliated with or endorsed by them."),
-("Blueland tablets vs Just 7 tabs?", "Same format: dry, pressed and pre-measured. The difference is the label: compare every ingredient. Ours is seven. [Tabs vs tabs](/blogs/compare/laundry-tabs-vs-laundry-sheets/)."),
+("Blueland tablets vs Just 7 tabs?", "Same format: dry, pressed and pre-measured. The difference is the label: compare every ingredient. Ours is seven. [Tabs vs sheets](/blogs/compare/laundry-tabs-vs-laundry-sheets/)."),
 ("Can I switch from Blueland to Just 7?", "Yes. Use one tab where you'd use one tablet for a regular load."),
 ("Is Just 7 like Seventh Generation Free & Clear?", "Both are fragrance-free choices. Seventh Generation's line is mainly liquid and pods; Just 7 is a seven-ingredient tab. Just 7 isn't affiliated with or endorsed by them."),
 ("Is Just 7 like All Free Clear?", "Both are fragrance-free and dye-free options. All Free Clear is mainly liquid and pods; Just 7 is a tab with seven ingredients. Just 7 isn't affiliated with or endorsed by them."),

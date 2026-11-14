@@ -21,7 +21,7 @@ QA = [
 ("Where else is microcrystalline cellulose used?", "It's a common binder in pressed tablets, like many vitamins."),
 ("How much of a tab is cellulose?", "About 10% of a tab in our working formula.†"),
 ("How much of a tab is washing soda?", "About 45% in our working formula. It lifts grease and softens water.†"),
-("Does Just 7 dissolve in cold water?", "It's designed to break up in warm or cold water, helped by a light fizz. We're running our own cold-water test and will share it.†"),
+("What helps the tab break up?", "Citric acid and washing soda make a light fizz, and the cellulose swells, to help the tab break apart in warm or cold water.†"),
 ("Will the cellulose leave bits on my clothes?", "It's designed to swell and disperse in the wash.† Overloading the drum is the usual cause of leftover bits, so put the tab in first and leave room."),
 ("What is lauryl glucoside?", "A cleaner that goes after body oils and grease, with a little lather. [More on lauryl glucoside](/blogs/ingredients/lauryl-glucoside-vs-sodium-lauryl-sulfate-same-name-different/)."),
 ("Is lauryl glucoside a sulfate?", "No. It sounds like sodium lauryl sulfate, but it's a sugar-based cleaner, not a sulfate."),
