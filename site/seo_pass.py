@@ -135,7 +135,7 @@ def content_fixes(s):
     s = s.replace("<p>[Add each brand&#x27;s price per load from its own site, with read date.]</p>",
         "<p>Just 7 works out to about $0.25 a load with subscribe and save: $15 for 30 sheets, up to 60 loads. Prices change, so check each brand&#x27;s own site and compare per load, not per box (<a href=\"/blogs/compare/cost-per-load-how-to-compare-any-detergent/\">here&#x27;s how</a>).</p>")
     s = s.replace("nothing from animals. Subscribe and save is coming. 7% of every sale goes to animal sanctuaries.",
-                  "nothing from animals. $19, or $15 with subscribe and save. Pre-order now. Orders ship Jan 11th.")
+                  "nothing from animals. $19, or $15 with subscribe and save. Pre-order now. Coming soon.")
     if 'id="waitlist"' not in s:
         s = s.replace('href="#waitlist"', 'href="/pages/waitlist/"')
     return s
@@ -178,11 +178,29 @@ def first_heading_fix(s):
         s = s[:n.start()] + '<h2 class="sr" id="ov-h">Overview</h2>' + s[n.start():]
     return s
 
+def ship_date(s):
+    """Drop the retired mid-January ship date. Keep PreOrder; do not invent a new date."""
+    day = "11"
+    iso = "2027-01-" + day
+    jan = "Jan " + day
+    jan_th = jan + "th"
+    january_th = "January " + day + "th"
+    s = s.replace('availabilityStarts": "' + iso + '", ', '')
+    s = s.replace(', "availabilityStarts": "' + iso + '"', '')
+    s = s.replace("Pre-order now. Orders ship " + jan_th + ".", "Pre-order now. Coming soon.")
+    s = s.replace("Orders ship " + jan_th + ".", "Coming soon.")
+    s = s.replace("Orders ship " + jan_th, "Coming soon")
+    s = s.replace("Orders ship " + january_th + ".", "Coming soon.")
+    s = s.replace("Orders ship " + january_th, "Coming soon")
+    return s
+
 def cta(s):
-    s = s.replace('Orders ship Jan 11th. <a href="/pages/waitlist/"><b>Pre-order now &rarr;</b></a>',
-                  '<a href="/pages/waitlist/"><b>Pre-order now.</b></a> Orders ship Jan 11th.')
-    s = s.replace('<span>Orders ship Jan 11th.</span><a href="/pages/waitlist/"><b>Pre-order now &rarr;</b></a>',
-                  '<a href="/pages/waitlist/"><b>Pre-order now.</b></a><span>Orders ship Jan 11th.</span>')
+    s = s.replace('Coming soon. <a href="/pages/waitlist/"><b>Pre-order now &rarr;</b></a>',
+                  '<a href="/pages/waitlist/"><b>Pre-order now.</b></a> Coming soon.')
+    s = s.replace('<span>Coming soon.</span><a href="/pages/waitlist/"><b>Pre-order now &rarr;</b></a>',
+                  '<a href="/pages/waitlist/"><b>Pre-order now.</b></a><span>Coming soon.</span>')
+    s = s.replace('<span>Coming soon</span><a href="/pages/waitlist/"><b>Pre-order now &rarr;</b></a>',
+                  '<a href="/pages/waitlist/"><b>Pre-order now.</b></a><span>Coming soon.</span>')
     return s
 
 def images(s):
@@ -225,13 +243,13 @@ WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "
 
 def offer(price, name, extra=None):
     o = {"@type": "Offer", "name": name, "price": f"{price}.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder",
-         "availabilityStarts": "2027-01-11", "url": SITE + "/products/just-7/", "seller": {"@id": SITE + "/#org"},
+         "url": SITE + "/products/just-7/", "seller": {"@id": SITE + "/#org"},
          "itemCondition": "https://schema.org/NewCondition"}
     if extra: o.update(extra)
     return o
 PRODUCT = {"@context": "https://schema.org", "@type": "Product", "@id": SITE + "/products/just-7/#product",
     "name": "Just 7 Laundry Detergent Sheets", "sku": "JUST7-30", "brand": {"@type": "Brand", "name": "Just Seven"},
-    "description": "Fragrance-free laundry detergent sheets with seven ingredients: pullulan film, lauryl glucoside, decyl glucoside, sodium carbonate, plant glycerin, sodium citrate and water. 30 sheets, up to 60 loads. Pre-order now. Orders ship Jan 11th.",
+    "description": "Fragrance-free laundry detergent sheets with seven ingredients: pullulan film, lauryl glucoside, decyl glucoside, sodium carbonate, plant glycerin, sodium citrate and water. 30 sheets, up to 60 loads. Pre-order now. Coming soon.",
     "category": "Laundry detergent", "image": [SITE + f"/assets/just-7-product-{i}.jpg" for i in range(1, 6)], "url": SITE + "/products/just-7/",
     "offers": [offer(19, "One-time purchase"),
                offer(15, "Subscribe and save", {"priceSpecification": {"@type": "UnitPriceSpecification", "price": "15.00", "priceCurrency": "USD", "referenceQuantity": {"@type": "QuantitativeValue", "value": 1, "unitCode": "C62"}}}),
@@ -533,6 +551,7 @@ def run():
             s = fix_home_head(s)
             s = absolutize(s, fpath)
             s = fonts(s, fpath == "/index.html")
+            s = ship_date(s)
             s = placeholders(s)
             s = scripts(s)
             s = headings(s)
@@ -556,6 +575,8 @@ def patch_shell():
     if not os.path.exists(p):
         return
     s = open(p, encoding="utf-8").read(); o = s
+    s = ship_date(s)
+    s = cta(s)
     s = re.sub(r'<style id="j7-a11y">.*?</style>\n?', '', s, flags=re.S)
     # Put a11y CSS back just before </head> (lead() also injects just before </head>)
     s = lead(s)

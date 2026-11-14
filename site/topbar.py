@@ -1,7 +1,7 @@
-"""Top bar on every page: Pre-order now. Orders ship Jan 11th."""
+"""Top bar on every page: Pre-order now. Coming soon."""
 import re
 
-MSG = 'Orders ship Jan 11th. <a href="{href}"><b>Pre-order now &rarr;</b></a>'
+MSG = 'Coming soon. <a href="{href}"><b>Pre-order now &rarr;</b></a>'
 
 
 def inner(rel):

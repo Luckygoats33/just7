@@ -19,7 +19,7 @@ QA = [
 ("Where are laundry detergent sheets made?", "It varies by brand. We'll state where Just 7 is made on the pouch before launch."),
 ("Are laundry sheets made in the USA?", "Some are. We'll confirm Just 7's country of origin on the pouch before launch."),
 ("What laundry sheets are made in Canada or the UK?", "We can't speak for every brand. We'll state where Just 7 is made before launch."),
-("Where can I buy laundry sheets?", "Just 7 is on just7sheets.com. Pre-order now. Orders ship Jan 11th."),
+("Where can I buy laundry sheets?", "Just 7 is on just7sheets.com. Pre-order now. Coming soon."),
 ("Are laundry sheets perforated?", "Just 7 sheets tear cleanly in half by hand for small loads."),
 ("Do laundry sheets stick together?", "They can in humid air. Keep the pouch sealed and handle with dry hands."),
 ("Do laundry sheets work for heavily soiled clothes?", "Use two sheets and pretreat. For heavy protein stains, Just 9 is planned."),

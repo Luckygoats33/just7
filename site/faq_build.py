@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); D = os.path.normpath(os.path.
 SITE = "https://just7sheets.com"; TARGET = 1111
 BANNED = re.compile(r"pet[\s-]?safe|plant[\s-]?based|plant[\s-]?derived|derived from plant[s]|made from plant[s]|plant[\s-]?sourced|come[s]? from plants|plants onl[y]", re.I)
 SUP = '<sup class="p"><a href="/pages/claims/" title="Pending proof: see our claims page" aria-label="Pending proof: see our claims page">†</a></sup>'
-PRE = "Pre-order now. Orders ship Jan 11th."
+PRE = "Pre-order now. Coming soon."
 
 def load():
     cats = []

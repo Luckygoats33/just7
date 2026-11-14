@@ -1,10 +1,10 @@
 CAT = ("pre-order", "Ordering and pre-order", "How pre-orders work and what happens next.")
 P = "†"
 QA = [
-("How do I pre-order Just 7?", "Pop your email in the [pre-order form](/pages/waitlist/). Pre-order now. Orders ship Jan 11th."),
+("How do I pre-order Just 7?", "Pop your email in the [pre-order form](/pages/waitlist/). Pre-order now. Coming soon."),
 ("Do I pay when I pre-order?", "No. The form only takes your email. Nothing is charged on this site yet."),
 ("Is pre-ordering a commitment?", "No. Joining the list doesn't commit you to buy."),
-("What happens after I pre-order?", "You'll get a confirmation email, then updates as Jan 11th gets close."),
+("What happens after I pre-order?", "You'll get a confirmation email, then updates as we get closer to shipping."),
 ("I didn't get a confirmation email. What now?", "Check spam and promotions. Still nothing? [Contact us](/pages/contact/)."),
 ("Can I pre-order more than one pouch?", "Yes. Tell us how many when we email to open orders. 2 or more pouches ship free."),
 ("Can I pre-order a subscription?", "Yes. Choose subscribe and save when orders open: $15 a pouch, every 4, 8 or 12 weeks."),
@@ -31,12 +31,12 @@ QA = [
 ("Do you charge sales tax?", "Tax is calculated at checkout where required."),
 ("Is the pre-order form secure?", "We only ask for an email and optional details, never a card. [Privacy policy](/policies/privacy-policy/)."),
 ("Can I pre-order from outside the US?", "Add your postal code when you pre-order so we can plan. Shipping areas are confirmed before launch."),
-("Why Jan 11th?", "That's when our first batch is scheduled to ship. Pre-order now so you're in it."),
+("When will my order ship?", "Just 7 is coming soon. Pre-order now and we'll email you the moment it ships."),
 ("Will the ship date change?", "If anything changes, pre-order customers hear first by email."),
 ("What if I miss the first batch?", "You can still order after launch. Joining now keeps you first in line."),
 ("Can I pre-order Just 9?", "Not yet. Join the list and we'll tell you when Just 9 opens."),
 ("Do I need an account to pre-order?", "No. Just your email."),
 ("Is there a limit per household?", "No limit on orders. The 7 Promise refund is one per household."),
 ("Where is the pre-order page?", "Right here: [just7sheets.com/pages/waitlist](/pages/waitlist/)."),
-("Why does the site say Pre-order now?", "Pre-order now. Orders ship Jan 11th. Joining is free and takes your email only."),
+("Why does the site say Pre-order now?", "Pre-order now. Coming soon. Joining is free and takes your email only."),
 ]

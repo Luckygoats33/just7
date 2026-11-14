@@ -6,7 +6,7 @@ Website for Just 7 laundry detergent sheets (Just Seven). Seven ingredients, eve
 - `site/` build scripts and homepage source (`home-template.html`, `skin.html`, `motion.html`, `prices.py`, `topbar.py`, `footnote.py`, `build_all.py`)
 - `product-images/` the 5 product page images (HTML sources and PNGs)
 
-Pre-order now. Orders ship Jan 11th. Prices: $15 subscribe, $14 each on 3+, $19 one-time. 90-day keep-the-pouch promise.
+Pre-order now. Coming soon. Prices: $15 subscribe, $14 each on 3+, $19 one-time. 90-day keep-the-pouch promise.
 
 ## After any rebuild
 

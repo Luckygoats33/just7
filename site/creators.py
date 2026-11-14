@@ -85,7 +85,7 @@ def opts(xs, ph):
 FAQ = [
     ("Do I need a big following?", "No. Small creators, reviewers and people who just do a lot of laundry are all welcome. An honest take from a real home is what we're after."),
     ("Is this paid?", "No. You get a free pouch to keep. There's no payment and no affiliate commission in this program."),
-    ("When will my pouch arrive?", "Pouches go out as our first batch is ready, around when orders ship Jan 11th. We'll email you before yours ships."),
+    ("When will my pouch arrive?", "Pouches go out as our first batch is ready. Just 7 is coming soon. We'll email you before yours ships."),
     ("Do I have to post a good review?", "No. We want your honest opinion, good or bad. We'd rather hear it now than after launch."),
     ("How do I disclose it?", "Say you got it free. Use #gifted or #ad, or say so in the post or video itself. The FTC asks for this, and it's simply fair to your audience."),
     ("Will you share my details?", "No. We use your application to pick testers and send your pouch. Questions? Visit just7sheets.com/contact."),
@@ -102,7 +102,7 @@ MAIN = f'''<main id="main">
 </div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><div class="grid">
 <div class="card"><h2 style="font-size:1.35rem">Who it's for</h2><p>Creators of any size: pets, home, eco, cleaning, parenting and laundry niches. Reviewers and unboxers. And everyday folks who just do a lot of laundry.</p></div>
-<div class="card"><h2 style="font-size:1.35rem">What you get</h2><p>A free pouch of Just 7: 30 sheets, up to 60 loads. Pouches go out as our first batch is ready, around when orders ship Jan 11th. It's yours to keep.</p></div>
+<div class="card"><h2 style="font-size:1.35rem">What you get</h2><p>A free pouch of Just 7: 30 sheets, up to 60 loads. Pouches go out as our first batch is ready. Just 7 is coming soon. It's yours to keep.</p></div>
 <div class="card"><h2 style="font-size:1.35rem">What we ask</h2><p>Try it for a few loads. Share an honest review or post and tag <b>@just7sheets</b>. Please say you got it free, with #gifted or #ad.</p></div>
 </div></div></section>
 <section class="section" id="apply" style="padding-top:0;scroll-margin-top:96px"><div class="wrap" style="display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:start">

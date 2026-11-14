@@ -8,7 +8,7 @@ QA = [
 ("What do you ask in return for a free pouch?", "Try it for a few loads and share an honest review or post, tagging @just7sheets."),
 ("Do I have to post a positive review?", "No. We want your honest opinion, good or bad."),
 ("How do I disclose a free product?", "Say you got it free, with #gifted or #ad or in the post itself. The FTC asks for this."),
-("When will my creator pouch arrive?", "Pouches go out as our first batch is ready, around when orders ship Jan 11th. We'll email before yours ships."),
+("When will my creator pouch arrive?", "Pouches go out as our first batch is ready. Just 7 is coming soon. We'll email before yours ships."),
 ("Which platforms can I post on?", "Any: TikTok, Instagram, YouTube, Facebook, Pinterest, Bluesky, X, a blog, or just a review."),
 ("Can I review Just 7 without being a creator?", "Yes. Once orders ship, we'd love your review. Honest ones help most."),
 ("Where are Just 7 reviews?", "We're pre-launch, so we don't show reviews yet. We'll only post real ones from real customers."),

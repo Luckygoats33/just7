@@ -1,7 +1,7 @@
 CAT = ("shipping", "Shipping", "When, where and how Just 7 ships.")
 P = "†"
 QA = [
-("When do orders ship?", "Orders ship Jan 11th."),
+("When do orders ship?", "Just 7 is coming soon. Pre-order now and we'll email you the moment it ships."),
 ("Is shipping free?", "Free on every subscription order and on one-time orders of 2 or more pouches."),
 ("How much is shipping for one pouch?", "One-pouch shipping costs are set before launch. Order 2 or more, or subscribe, and shipping is free."),
 ("Where do you ship?", "Shipping areas are confirmed with our fulfillment partner before launch. Add your ZIP when you pre-order so we can plan."),
